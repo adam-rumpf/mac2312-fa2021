@@ -1,0 +1,227 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7974,        219]
+NotebookOptionsPosition[      7616,        205]
+NotebookOutlinePosition[      8020,        221]
+CellTagsIndexPosition[      7977,        218]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"taylor", "[", 
+   RowBox[{"f_", ",", "n_", ",", "c_", ",", "x_"}], "]"}], ":=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{
+     FractionBox[
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"D", "[", 
+         RowBox[{
+          RowBox[{"f", "[", "x", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "i"}], "}"}]}], "]"}], "/.", 
+        RowBox[{"x", "\[Rule]", "c"}]}], ")"}], 
+      RowBox[{"i", "!"}]], 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "c"}], ")"}], "i"]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "0", ",", "n"}], "}"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"TableForm", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Simplify", "[", 
+       RowBox[{"taylor", "[", 
+        RowBox[{"f", ",", "n", ",", "c", ",", "x"}], "]"}], "]"}], ",", 
+      RowBox[{"Show", "[", 
+       RowBox[{
+        RowBox[{"Plot", "[", 
+         RowBox[{
+          RowBox[{"f", "[", "x", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", 
+            RowBox[{
+             RowBox[{"-", "3"}], "Pi"}], ",", 
+            RowBox[{"3", "Pi"}]}], "}"}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "3"}], "Pi"}], ",", 
+               RowBox[{"3", "Pi"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "3"}], "Pi"}], ",", 
+               RowBox[{"3", "Pi"}]}], "}"}]}], "}"}]}], ",", 
+          RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+          RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+          RowBox[{"Exclusions", "\[Rule]", 
+           RowBox[{"-", "1"}]}]}], "]"}], ",", 
+        RowBox[{"Plot", "[", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"taylor", "[", 
+            RowBox[{"f", ",", "n", ",", "c", ",", "x"}], "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", 
+            RowBox[{
+             RowBox[{"-", "3"}], "Pi"}], ",", 
+            RowBox[{"3", "Pi"}]}], "}"}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "3"}], "Pi"}], ",", 
+               RowBox[{"3", "Pi"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "3"}], "Pi"}], ",", 
+               RowBox[{"3", "Pi"}]}], "}"}]}], "}"}]}], ",", 
+          RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+          RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}], ",", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"{", 
+          RowBox[{"Black", ",", 
+           RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+           RowBox[{"Point", "[", 
+            RowBox[{"{", 
+             RowBox[{"c", ",", 
+              RowBox[{"f", "[", "c", "]"}]}], "}"}], "]"}]}], "}"}], "]"}]}], 
+       "]"}]}], "}"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f", ",", "Sin"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Sin", "\[Rule]", "\"\<sin(x)\>\""}], ",", 
+       RowBox[{"Cos", "\[Rule]", "\"\<cos(x)\>\""}], ",", 
+       RowBox[{
+       "Exp", "\[Rule]", 
+        "\"\<\!\(\*SuperscriptBox[\(\[ExponentialE]\), \(x\)]\)\>\""}], ",", 
+       RowBox[{
+        RowBox[{"Function", "[", 
+         RowBox[{"x", ",", 
+          RowBox[{"Log", "[", 
+           RowBox[{"x", "+", "1"}], "]"}]}], "]"}], "\[Rule]", 
+        "\"\<ln(x+1)\>\""}], ",", 
+       RowBox[{
+        RowBox[{"Function", "[", 
+         RowBox[{"x", ",", 
+          RowBox[{"5", 
+           SuperscriptBox["E", 
+            RowBox[{
+             RowBox[{"-", 
+              SuperscriptBox["x", "2"]}], "/", "5"}]]}]}], "]"}], "\[Rule]", 
+        "\"\<5\!\(\*SuperscriptBox[\(\[ExponentialE]\), \
+\(\(-\*SuperscriptBox[\(x\), \(2\)]\)/5\)]\)\>\""}], ",", 
+       RowBox[{
+        RowBox[{"Function", "[", 
+         RowBox[{"x", ",", 
+          RowBox[{"0.0025", 
+           RowBox[{"(", 
+            RowBox[{"x", "+", "10"}], ")"}], 
+           RowBox[{"(", 
+            RowBox[{"x", "+", "1"}], ")"}], 
+           RowBox[{"(", 
+            RowBox[{"x", "-", "2"}], ")"}], 
+           RowBox[{"(", 
+            RowBox[{"x", "-", "7"}], ")"}]}]}], "]"}], "\[Rule]", 
+        "\"\<0.35\[VeryThinSpace]+0.16x-0.1875\!\(\*SuperscriptBox[\(x\), \(2\
+\)]\)+0.005\!\(\*SuperscriptBox[\(x\), \
+\(3\)]\)+0.0025\!\(\*SuperscriptBox[\(x\), \(4\)]\)\>\""}], ",", 
+       RowBox[{
+        RowBox[{"Function", "[", 
+         RowBox[{"x", ",", 
+          RowBox[{
+           RowBox[{"0.01", "x", 
+            RowBox[{"(", 
+             RowBox[{"x", "+", "5"}], ")"}], 
+            RowBox[{"(", 
+             RowBox[{"x", "-", "6"}], ")"}]}], "+", 
+           FractionBox["5", 
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"x", "+", "2"}], ")"}], "2"], "+", "1"}]]}]}], "]"}], 
+        "\[Rule]", 
+        "\"\<-0.3x-0.01\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)+0.01\!\(\*SuperscriptBox[\(x\), \(3\)]\)+\!\(\*FractionBox[\(5\), \(\
+\*SuperscriptBox[\((x + 2)\), \(2\)] + 1\)]\)\>\""}], ",", 
+       RowBox[{
+        RowBox[{"Function", "[", 
+         RowBox[{"x", ",", 
+          FractionBox["1", 
+           RowBox[{"x", "+", "1"}]]}], "]"}], "\[Rule]", 
+        "\"\<\!\(\*FractionBox[\(1\), \(x + 1\)]\)\>\""}]}], "}"}]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c", ",", "0"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"-", "3"}], "Pi"}], ",", 
+     RowBox[{"3", "Pi"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "0", ",", "20", ",", "1"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6459981297634745`*^9, 3.64599824489806*^9}, {
+   3.6459983061895657`*^9, 3.6459985231729765`*^9}, {3.6459985802912436`*^9, 
+   3.6459986638110204`*^9}, {3.645998712856826*^9, 3.6459987385802965`*^9}, {
+   3.645998847350518*^9, 3.6459988884078665`*^9}, 3.6459989201556826`*^9, {
+   3.645999027080798*^9, 3.6459990523282423`*^9}, {3.645999143368449*^9, 
+   3.645999182734701*^9}, {3.6459992338986273`*^9, 3.6459993195685277`*^9}, {
+   3.646043616072391*^9, 3.6460436276130514`*^9}, {3.6624897197965593`*^9, 
+   3.6624897263299203`*^9}, {3.6624900808149543`*^9, 3.6624901115608177`*^9}, 
+   3.6624901989939165`*^9, {3.687181134692875*^9, 3.68718113802907*^9}, {
+   3.687181168087864*^9, 3.6871811702429295`*^9}, {3.687183820497263*^9, 
+   3.6871838501296496`*^9}, 3.6871839381890593`*^9, {3.687183971938387*^9, 
+   3.687183973508892*^9}, {3.687184032234145*^9, 3.687184078407375*^9}, {
+   3.687184338352383*^9, 3.687184342646497*^9}, {3.687184518355812*^9, 
+   3.6871845248590403`*^9}, {3.83864963034101*^9, 
+   3.8386496313856754`*^9}},ExpressionUUID->"d9b7c637-bae6-455c-9bf3-\
+f5d6a4380bb3"]
+},
+WindowSize->{1600, 858},
+WindowMargins->{{Automatic, 121}, {Automatic, 60}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"7b201eea-5324-4389-98dc-f1335d9c953e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 7054, 183, 190, "Input",ExpressionUUID->"d9b7c637-bae6-455c-9bf3-f5d6a4380bb3"]
+}
+]
+*)
+
