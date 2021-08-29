@@ -1,0 +1,173 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6105,        165]
+NotebookOptionsPosition[      5620,        148]
+NotebookOutlinePosition[      6023,        164]
+CellTagsIndexPosition[      5980,        161]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"f", "[", "x_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"2", 
+    RowBox[{"Sin", "[", 
+     RowBox[{"1.5", "x"}], "]"}]}], "+", 
+   SuperscriptBox["E", 
+    RowBox[{"-", "x"}]], "+", 
+   RowBox[{"0.25", "x"}], "-", "1"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g", "[", "x_", "]"}], ":=", 
+  RowBox[{"NIntegrate", "[", 
+   RowBox[{
+    RowBox[{"f", "[", "t", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "0", ",", "x"}], "}"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"f", "[", "x", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "6"}], "}"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "3"}], ",", "3"}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "\[Rule]", "Thick"}], ",", 
+       RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+       RowBox[{"Filling", "\[Rule]", "Axis"}]}], "]"}], ",", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"f", "[", "x", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "b"}], "}"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "3"}], ",", "3"}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "\[Rule]", "Thick"}], ",", 
+       RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+       RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+       RowBox[{"FillingStyle", "\[Rule]", "LightOrange"}]}], "]"}], ",", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", 
+        RowBox[{"Text", "[", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{
+            "\"\<\!\(\*SuperscriptBox[SubscriptBox[\(\[Integral]\), \(0\)], \
+\(x\)]\)f(t)\[DifferentialD]t = \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{"g", "[", "b", "]"}], "]"}]}], ",", "12"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"2", ",", "2.5"}], "}"}]}], "]"}]}], "}"}], "]"}]}], "]"}],
+    ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b", ",", "1"}], "}"}], ",", "0.01", ",", "6"}], "}"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.8388542812351627`*^9, 3.838854309441414*^9}, {
+  3.838854354734625*^9, 3.838854503804165*^9}, {3.838854550215414*^9, 
+  3.838854557056389*^9}, {3.8388545907530384`*^9, 3.838854688126197*^9}},
+ CellLabel->"In[79]:=",ExpressionUUID->"e1a40401-4d88-4fea-a0d2-e1ca3edbde37"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`b$$ = 4.7, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`b$$], 1}, 0.01, 6}}, Typeset`size$$ = {
+    360., {180., 185.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`b$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        Plot[
+         $CellContext`f[$CellContext`x], {$CellContext`x, 0, 6}, 
+         PlotRange -> {-3, 3}, PlotStyle -> Thick, AspectRatio -> 1, Filling -> 
+         Axis], 
+        Plot[
+         $CellContext`f[$CellContext`x], {$CellContext`x, 
+          0, $CellContext`b$$}, PlotRange -> {-3, 3}, PlotStyle -> Thick, 
+         AspectRatio -> 1, Filling -> Axis, FillingStyle -> LightOrange], 
+        Graphics[{Black, 
+          Text[
+           Style[
+            StringJoin[
+            "\!\(\*SuperscriptBox[SubscriptBox[\(\[Integral]\), \(0\)], \
+\(x\)]\)f(t)\[DifferentialD]t = ", 
+             ToString[
+              $CellContext`g[$CellContext`b$$]]], 12], {2, 2.5}]}]], 
+      "Specifications" :> {{{$CellContext`b$$, 1}, 0.01, 6}}, "Options" :> {},
+       "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {227., 233.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.838854361198945*^9, 3.8388543942225204`*^9, {3.838854432955431*^9, 
+   3.8388545040635114`*^9}, 3.8388545575385036`*^9, 3.838854592987822*^9, 
+   3.838854628141991*^9, {3.838854684202592*^9, 3.8388546888948708`*^9}},
+ CellLabel->"Out[81]=",ExpressionUUID->"039d713f-ad77-4ff9-9fc4-08855661b772"]
+}, Open  ]]
+},
+WindowSize->{760, 833},
+WindowMargins->{{367, Automatic}, {Automatic, 77}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"80623849-91b0-4b2b-97f1-6efc343ad282"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 2592, 70, 211, "Input",ExpressionUUID->"e1a40401-4d88-4fea-a0d2-e1ca3edbde37"],
+Cell[3175, 94, 2429, 51, 479, "Output",ExpressionUUID->"039d713f-ad77-4ff9-9fc4-08855661b772"]
+}, Open  ]]
+}
+]
+*)
+
