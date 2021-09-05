@@ -1,0 +1,1205 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     51613,       1197]
+NotebookOptionsPosition[     49837,       1160]
+NotebookOutlinePosition[     50240,       1176]
+CellTagsIndexPosition[     50197,       1173]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Displays", " ", "a", " ", "solid", " ", "of", " ", "revolution", " ", 
+    "for", " ", "a", " ", "function", " ", "f", " ", "over", " ", "the", " ", 
+    RowBox[{
+     RowBox[{"interval", " ", "[", 
+      RowBox[{"a", ",", "b"}], "]"}], "."}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"revolve", "[", 
+    RowBox[{"f_", ",", 
+     RowBox[{"a_", ":", "0"}], ",", 
+     RowBox[{"b_", ":", "1"}], ",", 
+     RowBox[{"ay_", ":", "0"}], ",", 
+     RowBox[{"by_", ":", "1"}], ",", 
+     RowBox[{"buffer_", ":", "0.25"}]}], "]"}], ":=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "box", ",", "bound", ",", "surf", ",", "cap1", ",", "cap2", ",", 
+         "curve", ",", "axes"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"bound", "=", 
+         RowBox[{
+          RowBox[{"Max", "[", 
+           RowBox[{
+            RowBox[{"Abs", "[", "a", "]"}], ",", 
+            RowBox[{"Abs", "[", "b", "]"}]}], "]"}], "+", "buffer"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"box", "=", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Opacity", "[", "0", "]"}], ",", 
+            RowBox[{"EdgeForm", "[", 
+             RowBox[{"Opacity", "[", "0", "]"}], "]"}], ",", 
+            RowBox[{"Cuboid", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"ay", "-", "buffer"}], ",", 
+                RowBox[{"-", "bound"}], ",", 
+                RowBox[{"-", "bound"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"by", "+", "buffer"}], ",", "bound", ",", "bound"}], 
+               "}"}]}], "]"}]}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"surf", "=", 
+         RowBox[{"RevolutionPlot3D", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"f", "[", "x", "]"}], ",", "x"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", "Pi", ",", 
+             RowBox[{"Pi", "+", "\[Theta]"}]}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"curve", "=", 
+         RowBox[{"ParametricPlot3D", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"t", ",", "0", ",", 
+             RowBox[{"f", "[", "t", "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", "a", ",", "b"}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", "Thick"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"axes", "=", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", 
+            RowBox[{"Thickness", "[", "Medium", "]"}], ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "]"}], ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "]"}], ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}]}], "}"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", 
+         RowBox[{"box", ",", "axes", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Graphics3D", "[", 
+             RowBox[{
+              RowBox[{"Rotate", "[", 
+               RowBox[{"#", ",", 
+                RowBox[{"Pi", "/", "2"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "]"}], ",", 
+              RowBox[{"PlotRange", "\[Rule]", "All"}], ",", "##2"}], "]"}], 
+            "&"}], "@@", "surf"}], ",", "curve", ",", 
+          RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "True"}]}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Theta]", ",", "0.001"}], "}"}], ",", "0.001", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8397998006733904`*^9, 3.8397999628154783`*^9}, {
+  3.8397999964199066`*^9, 3.839800180694411*^9}, {3.839800370634054*^9, 
+  3.8398004316854563`*^9}, {3.839800484729395*^9, 3.8398005118981037`*^9}, {
+  3.83980054781905*^9, 3.839800562391883*^9}, {3.839800618525076*^9, 
+  3.83980065423934*^9}, {3.839800842612271*^9, 3.8398009096386585`*^9}, {
+  3.839801028863945*^9, 3.8398010706487274`*^9}, {3.839801114571351*^9, 
+  3.8398011280223703`*^9}, {3.8398011687211175`*^9, 3.8398012116216354`*^9}, {
+  3.839801246829452*^9, 3.8398015824873962`*^9}, {3.839802743058402*^9, 
+  3.839802750188305*^9}, {3.8398027802461863`*^9, 3.8398027820196147`*^9}, {
+  3.839802853308961*^9, 3.839802897234128*^9}},
+ CellLabel->
+  "In[158]:=",ExpressionUUID->"214f8f57-a22f-496d-96a9-f38be09c38bd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"revolve", "[", 
+  RowBox[{
+   SqrtBox[
+    RowBox[{"1", "-", 
+     SuperscriptBox["#", "2"]}]], "&"}], "]"}]], "Input",
+ CellChangeTimes->{{3.839800003046357*^9, 3.8398000151162543`*^9}},
+ CellLabel->
+  "In[155]:=",ExpressionUUID->"8b1123d4-cbeb-44c6-97c6-9f773e0acfeb"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Theta]$$ = 4.850847057142641, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Theta]$$], 0.001}, 0.001, 2 Pi}}, 
+    Typeset`size$$ = {360., {183., 189.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Theta]$$ = 0.001}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`box$, $CellContext`bound$, $CellContext`surf$, \
+$CellContext`curve$, $CellContext`axes$}, $CellContext`bound$ = Max[
+            Abs[0], 
+            Abs[1]] + 0.25; $CellContext`box$ = Graphics3D[{
+            Opacity[0], 
+            EdgeForm[
+             Opacity[0]], 
+            
+            Cuboid[{0 - 0.25, -$CellContext`bound$, -$CellContext`bound$}, {
+             1 + 0.25, $CellContext`bound$, $CellContext`bound$}]}]; \
+$CellContext`surf$ = RevolutionPlot3D[{
+            (Sqrt[
+            1 - #^2]& )[$CellContext`x], $CellContext`x}, {$CellContext`x, 0, 
+            1}, {$CellContext`t, Pi, 
+            Pi + $CellContext`\[Theta]$$}]; $CellContext`curve$ = 
+         ParametricPlot3D[{$CellContext`t, 0, 
+            (Sqrt[1 - #^2]& )[$CellContext`t]}, {$CellContext`t, 0, 1}, 
+           PlotStyle -> {Blue, Thick}]; $CellContext`axes$ = 
+         Graphics3D[{Black, 
+            Thickness[Medium], 
+            InfiniteLine[{0, 0, 0}, {1, 0, 0}], 
+            InfiniteLine[{0, 0, 0}, {0, 1, 0}], 
+            InfiniteLine[{0, 0, 0}, {0, 0, 1}]}]; 
+        Show[$CellContext`box$, $CellContext`axes$, 
+          Apply[Graphics3D[
+            Rotate[#, Pi/2, {0, 1, 0}], PlotRange -> All, 
+            SlotSequence[2]]& , $CellContext`surf$], $CellContext`curve$, 
+          PlotRange -> All, Axes -> True]], 
+      "Specifications" :> {{{$CellContext`\[Theta]$$, 0.001}, 0.001, 2 Pi}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {230., 236.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.839800017021813*^9, 3.8398000419931498`*^9}, 
+   3.839800190070809*^9, 3.83980035149926*^9, {3.8398003817245955`*^9, 
+   3.839800433089315*^9}, 3.8398005655295115`*^9, {3.8398006380079327`*^9, 
+   3.839800655706857*^9}, 3.8398007537322426`*^9, {3.839800880469981*^9, 
+   3.8398009109629316`*^9}, {3.8398010346932917`*^9, 3.839801072225738*^9}, {
+   3.839801120341119*^9, 3.8398011298186226`*^9}, 3.8398011794667306`*^9, {
+   3.8398012878240104`*^9, 3.839801321722413*^9}, {3.839801525710389*^9, 
+   3.839801584209288*^9}, 3.839802752534379*^9, 3.839802784384389*^9},
+ CellLabel->
+  "Out[155]=",ExpressionUUID->"1241a399-3db0-494c-9aed-ddcc712ea632"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Displays", " ", "a", " ", "solid", " ", "of", " ", "revolution", " ", 
+    "approximated", " ", "by", " ", "a", " ", "number", " ", "of", " ", 
+    RowBox[{"disks", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"approximate", "[", 
+    RowBox[{"f_", ",", 
+     RowBox[{"a_", ":", "0"}], ",", 
+     RowBox[{"b_", ":", "1"}], ",", 
+     RowBox[{"ay_", ":", "0"}], ",", 
+     RowBox[{"by_", ":", "1"}], ",", 
+     RowBox[{"buffer_", ":", "0.25"}]}], "]"}], ":=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "box", ",", "bound", ",", "curve", ",", "axes", ",", "disks", ",", 
+         "dx"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"dx", "=", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"b", "-", "a"}], ")"}], "/", "n"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"bound", "=", 
+         RowBox[{
+          RowBox[{"Max", "[", 
+           RowBox[{
+            RowBox[{"Abs", "[", "a", "]"}], ",", 
+            RowBox[{"Abs", "[", "b", "]"}]}], "]"}], "+", "buffer"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"box", "=", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Opacity", "[", "0", "]"}], ",", 
+            RowBox[{"EdgeForm", "[", 
+             RowBox[{"Opacity", "[", "0", "]"}], "]"}], ",", 
+            RowBox[{"Cuboid", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"ay", "-", "buffer"}], ",", 
+                RowBox[{"-", "bound"}], ",", 
+                RowBox[{"-", "bound"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"by", "+", "buffer"}], ",", "bound", ",", "bound"}], 
+               "}"}]}], "]"}]}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"curve", "=", 
+         RowBox[{"ParametricPlot3D", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"t", ",", "0", ",", 
+             RowBox[{"f", "[", "t", "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", "a", ",", "b"}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", "Thick"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"axes", "=", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", 
+            RowBox[{"Thickness", "[", "Medium", "]"}], ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "]"}], ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "]"}], ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}]}], "}"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"disks", "=", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{"Join", "[", 
+           RowBox[{
+            RowBox[{"{", "}"}], ",", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"Cylinder", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"x", "-", 
+                    RowBox[{"dx", "/", "2"}]}], ",", "0", ",", "0"}], "}"}], 
+                  ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"x", "+", 
+                    RowBox[{"dx", "/", "2"}]}], ",", "0", ",", "0"}], "}"}]}],
+                  "}"}], ",", 
+                RowBox[{"f", "[", "x", "]"}]}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", 
+                RowBox[{"a", "+", 
+                 RowBox[{"dx", "/", "2"}]}], ",", 
+                RowBox[{"b", "-", 
+                 RowBox[{"dx", "/", "2"}]}], ",", "dx"}], "}"}]}], "]"}]}], 
+           "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", 
+         RowBox[{"box", ",", "axes", ",", "curve", ",", "disks", ",", 
+          RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "True"}]}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"n", ",", "10"}], "}"}], ",", "1", ",", "20", ",", "1"}], 
+      "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8397998006733904`*^9, 3.8397999628154783`*^9}, {
+  3.8397999964199066`*^9, 3.839800180694411*^9}, {3.839800370634054*^9, 
+  3.8398004316854563`*^9}, {3.839800484729395*^9, 3.8398005118981037`*^9}, {
+  3.83980054781905*^9, 3.839800562391883*^9}, {3.839800618525076*^9, 
+  3.83980065423934*^9}, {3.839800842612271*^9, 3.8398009096386585`*^9}, {
+  3.839801028863945*^9, 3.8398010706487274`*^9}, {3.839801114571351*^9, 
+  3.8398011280223703`*^9}, {3.8398011687211175`*^9, 3.8398012116216354`*^9}, {
+  3.839801246829452*^9, 3.8398015824873962`*^9}, {3.8398019898861294`*^9, 
+  3.8398022893005476`*^9}, {3.839802343458744*^9, 3.839802355380346*^9}},
+ CellLabel->
+  "In[141]:=",ExpressionUUID->"f3df4f84-71aa-4c9c-9d88-f9a47ee1559d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"approximate", "[", 
+  RowBox[{
+   SqrtBox[
+    RowBox[{"1", "-", 
+     SuperscriptBox["#", "2"]}]], "&"}], "]"}]], "Input",
+ CellChangeTimes->{{3.839802034540409*^9, 3.83980203592806*^9}},
+ CellLabel->
+  "In[142]:=",ExpressionUUID->"df54c550-d034-49a0-a994-41a7365cf928"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`n$$ = 9, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 10}, 1, 20, 1}}, Typeset`size$$ = {
+    360., {183., 189.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`n$$ = 10}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`box$, $CellContext`bound$, $CellContext`curve$, \
+$CellContext`axes$, $CellContext`disks$, $CellContext`dx$}, $CellContext`dx$ = \
+(1 - 0)/$CellContext`n$$; $CellContext`bound$ = Max[
+            Abs[0], 
+            Abs[1]] + 0.25; $CellContext`box$ = Graphics3D[{
+            Opacity[0], 
+            EdgeForm[
+             Opacity[0]], 
+            
+            Cuboid[{0 - 0.25, -$CellContext`bound$, -$CellContext`bound$}, {
+             1 + 0.25, $CellContext`bound$, $CellContext`bound$}]}]; \
+$CellContext`curve$ = ParametricPlot3D[{$CellContext`t, 0, 
+            (Sqrt[1 - #^2]& )[$CellContext`t]}, {$CellContext`t, 0, 1}, 
+           PlotStyle -> {Blue, Thick}]; $CellContext`axes$ = 
+         Graphics3D[{Black, 
+            Thickness[Medium], 
+            InfiniteLine[{0, 0, 0}, {1, 0, 0}], 
+            InfiniteLine[{0, 0, 0}, {0, 1, 0}], 
+            InfiniteLine[{0, 0, 0}, {0, 0, 1}]}]; $CellContext`disks$ = 
+         Graphics3D[
+           Join[{}, 
+            Table[
+             
+             Cylinder[{{$CellContext`x - $CellContext`dx$/2, 0, 
+                0}, {$CellContext`x + $CellContext`dx$/2, 0, 0}}, 
+              (Sqrt[1 - #^2]& )[$CellContext`x]], {$CellContext`x, 
+              0 + $CellContext`dx$/2, 1 - $CellContext`dx$/
+              2, $CellContext`dx$}]]]; 
+        Show[$CellContext`box$, $CellContext`axes$, $CellContext`curve$, \
+$CellContext`disks$, PlotRange -> All, Axes -> True]], 
+      "Specifications" :> {{{$CellContext`n$$, 10}, 1, 20, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {230., 236.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8398020362520723`*^9, 3.839802100436895*^9}, 
+   3.8398022941637154`*^9, 3.8398023571548667`*^9},
+ CellLabel->
+  "Out[142]=",ExpressionUUID->"30dfb3ad-e086-4b84-8f72-75bfa32d28d4"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Displays", " ", "the", " ", "typical", " ", "rectangle", " ", "for", " ", 
+    "a", " ", "function", " ", "f", " ", "over", " ", "the", " ", 
+    RowBox[{
+     RowBox[{"interval", " ", "[", 
+      RowBox[{"a", ",", "b"}], "]"}], "."}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"rectangle", "[", 
+    RowBox[{"f_", ",", 
+     RowBox[{"a_", ":", "0"}], ",", 
+     RowBox[{"b_", ":", "1"}], ",", 
+     RowBox[{"ay_", ":", "0"}], ",", 
+     RowBox[{"by_", ":", "1"}], ",", 
+     RowBox[{"buffer_", ":", "0.25"}]}], "]"}], ":=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"box", ",", "curve", ",", "rec", ",", "dx"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"dx", "=", 
+         RowBox[{"0.05", 
+          RowBox[{"(", 
+           RowBox[{"b", "-", "a"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"box", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Opacity", "[", "0", "]"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "-", "buffer"}], ",", 
+                RowBox[{"ay", "-", "buffer"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"b", "+", "buffer"}], ",", 
+                RowBox[{"by", "+", "buffer"}]}], "}"}]}], "]"}]}], "}"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"curve", "=", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"f", "[", "t", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", "a", ",", "b"}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", "Thick"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"rec", "=", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{"LightOrange", ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"x", "-", 
+                 RowBox[{"0.5", "dx"}]}], ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"x", "+", 
+                 RowBox[{"0.5", "dx"}]}], ",", 
+                RowBox[{"f", "[", "x", "]"}]}], "}"}]}], "]"}], ",", "Black", 
+            ",", 
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "-", 
+                  RowBox[{"0.5", "dx"}]}], ",", "0"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "+", 
+                  RowBox[{"0.5", "dx"}]}], ",", "0"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "+", 
+                  RowBox[{"0.5", "dx"}]}], ",", 
+                 RowBox[{"f", "[", "x", "]"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "-", 
+                  RowBox[{"0.5", "dx"}]}], ",", 
+                 RowBox[{"f", "[", "x", "]"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "-", 
+                  RowBox[{"0.5", "dx"}]}], ",", "0"}], "}"}]}], "}"}], "]"}], 
+            ",", "Dashed", ",", 
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"x", ",", "0"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", 
+                 RowBox[{"f", "[", "x", "]"}]}], "}"}]}], "}"}], "]"}]}], 
+           "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", 
+         RowBox[{"box", ",", "curve", ",", "rec", ",", 
+          RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "True"}]}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"a", "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"b", "-", "a"}], ")"}], "/", "3"}]}]}], "}"}], ",", "a", 
+       ",", "b"}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.839800776510494*^9, 3.8398007945811367`*^9}, {
+  3.8398016141513014`*^9, 3.8398016360019336`*^9}, {3.8398017029154873`*^9, 
+  3.8398017103686657`*^9}, {3.839801740386952*^9, 3.83980180908523*^9}, {
+  3.839801854352029*^9, 3.8398019493989716`*^9}},
+ CellLabel->
+  "In[127]:=",ExpressionUUID->"93454aae-0c9d-4821-855a-004403c98d6d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"rectangle", "[", 
+  RowBox[{
+   SqrtBox[
+    RowBox[{"1", "-", 
+     SuperscriptBox["#", "2"]}]], "&"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8398018197315545`*^9, 3.839801820838552*^9}},
+ CellLabel->
+  "In[128]:=",ExpressionUUID->"076580b5-2836-4a9a-ab45-d67c954ccc03"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`x$$ = 0.3, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`x$$], 
+       Rational[1, 3]}, 0, 1}}, Typeset`size$$ = {360., {177., 182.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`x$$ = Rational[1, 3]}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`box$, $CellContext`curve$, $CellContext`rec$, \
+$CellContext`dx$}, $CellContext`dx$ = 0.05 (1 - 0); $CellContext`box$ = 
+         Graphics[{
+            Opacity[0], 
+            
+            Rectangle[{0 - 0.25, 0 - 0.25}, {
+             1 + 0.25, 1 + 0.25}]}]; $CellContext`curve$ = Plot[
+           (Sqrt[1 - #^2]& )[$CellContext`t], {$CellContext`t, 0, 1}, 
+           PlotStyle -> {Blue, Thick}]; $CellContext`rec$ = 
+         Graphics[{LightOrange, 
+            
+            Rectangle[{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+              0}, {$CellContext`x$$ + 0.5 $CellContext`dx$, 
+              (Sqrt[1 - #^2]& )[$CellContext`x$$]}], Black, 
+            
+            Line[{{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+               0}, {$CellContext`x$$ + 0.5 $CellContext`dx$, 
+               0}, {$CellContext`x$$ + 0.5 $CellContext`dx$, 
+               (Sqrt[1 - #^2]& )[$CellContext`x$$]}, {$CellContext`x$$ - 
+               0.5 $CellContext`dx$, 
+               (Sqrt[1 - #^2]& )[$CellContext`x$$]}, {$CellContext`x$$ - 
+               0.5 $CellContext`dx$, 0}}], Dashed, 
+            Line[{{$CellContext`x$$, 0}, {$CellContext`x$$, 
+               (Sqrt[1 - #^2]& )[$CellContext`x$$]}}]}]; 
+        Show[$CellContext`box$, $CellContext`curve$, $CellContext`rec$, 
+          PlotRange -> All, Axes -> True]], 
+      "Specifications" :> {{{$CellContext`x$$, 
+          Rational[1, 3]}, 0, 1}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {224., 230.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.8398018212845335`*^9, 3.8398018677645817`*^9, {3.8398019411617126`*^9, 
+   3.8398019510053473`*^9}},
+ CellLabel->
+  "Out[128]=",ExpressionUUID->"773784da-4c26-47d0-bb7c-48923fe13ad3"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Displays", " ", "the", " ", "typical", " ", "cylinder", " ", "for", " ", 
+    "a", " ", "solid", " ", "of", " ", 
+    RowBox[{"revolution", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"cylinder", "[", 
+    RowBox[{"f_", ",", 
+     RowBox[{"a_", ":", "0"}], ",", 
+     RowBox[{"b_", ":", "1"}], ",", 
+     RowBox[{"ay_", ":", "0"}], ",", 
+     RowBox[{"by_", ":", "1"}], ",", 
+     RowBox[{"buffer_", ":", "0.25"}]}], "]"}], ":=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "box", ",", "bound", ",", "curve", ",", "axes", ",", "disk", ",", 
+         "dx"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"dx", "=", 
+         RowBox[{"0.1", 
+          RowBox[{"(", 
+           RowBox[{"b", "-", "a"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"bound", "=", 
+         RowBox[{
+          RowBox[{"Max", "[", 
+           RowBox[{
+            RowBox[{"Abs", "[", "a", "]"}], ",", 
+            RowBox[{"Abs", "[", "b", "]"}]}], "]"}], "+", "buffer"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"box", "=", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Opacity", "[", "0", "]"}], ",", 
+            RowBox[{"EdgeForm", "[", 
+             RowBox[{"Opacity", "[", "0", "]"}], "]"}], ",", 
+            RowBox[{"Cuboid", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"ay", "-", "buffer"}], ",", 
+                RowBox[{"-", "bound"}], ",", 
+                RowBox[{"-", "bound"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"by", "+", "buffer"}], ",", "bound", ",", "bound"}], 
+               "}"}]}], "]"}]}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"curve", "=", 
+         RowBox[{"ParametricPlot3D", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"t", ",", "0", ",", 
+             RowBox[{"f", "[", "t", "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", "a", ",", "b"}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", "Thick"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"axes", "=", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", 
+            RowBox[{"Thickness", "[", "Medium", "]"}], ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "]"}], ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "]"}], ",", 
+            RowBox[{"InfiniteLine", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}]}], "}"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"disk", "=", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{"{", 
+           RowBox[{"Cylinder", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "-", 
+                  RowBox[{"dx", "/", "2"}]}], ",", "0", ",", "0"}], "}"}], 
+               ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"x", "+", 
+                  RowBox[{"dx", "/", "2"}]}], ",", "0", ",", "0"}], "}"}]}], 
+              "}"}], ",", 
+             RowBox[{"f", "[", "x", "]"}]}], "]"}], "}"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", 
+         RowBox[{"box", ",", "axes", ",", "curve", ",", "disk", ",", 
+          RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "True"}]}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"a", "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"b", "-", "a"}], ")"}], "/", "3"}]}]}], "}"}], ",", "a", 
+       ",", "b"}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8397998006733904`*^9, 3.8397999628154783`*^9}, {
+  3.8397999964199066`*^9, 3.839800180694411*^9}, {3.839800370634054*^9, 
+  3.8398004316854563`*^9}, {3.839800484729395*^9, 3.8398005118981037`*^9}, {
+  3.83980054781905*^9, 3.839800562391883*^9}, {3.839800618525076*^9, 
+  3.83980065423934*^9}, {3.839800842612271*^9, 3.8398009096386585`*^9}, {
+  3.839801028863945*^9, 3.8398010706487274`*^9}, {3.839801114571351*^9, 
+  3.8398011280223703`*^9}, {3.8398011687211175`*^9, 3.8398012116216354`*^9}, {
+  3.839801246829452*^9, 3.8398015824873962`*^9}, {3.8398019898861294`*^9, 
+  3.8398022893005476`*^9}, {3.839802343458744*^9, 3.839802355380346*^9}, {
+  3.839802412779196*^9, 3.839802496159211*^9}, {3.8398025570773497`*^9, 
+  3.83980257750419*^9}},
+ CellLabel->
+  "In[147]:=",ExpressionUUID->"752f8b11-8d91-4b76-b8c2-9900f3afc3dc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cylinder", "[", 
+  RowBox[{
+   SqrtBox[
+    RowBox[{"1", "-", 
+     SuperscriptBox["#", "2"]}]], "&"}], "]"}]], "Input",
+ CellChangeTimes->{{3.839802508190159*^9, 3.8398025092922993`*^9}},
+ CellLabel->
+  "In[148]:=",ExpressionUUID->"42d4c19c-c684-4bec-b222-36d43c8b51ec"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`x$$ = 0.492, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`x$$], 
+       Rational[1, 3]}, 0, 1}}, Typeset`size$$ = {360., {183., 189.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`x$$ = Rational[1, 3]}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`box$, $CellContext`bound$, $CellContext`curve$, \
+$CellContext`axes$, $CellContext`disk$, $CellContext`dx$}, $CellContext`dx$ = 
+         0.1 (1 - 0); $CellContext`bound$ = Max[
+            Abs[0], 
+            Abs[1]] + 0.25; $CellContext`box$ = Graphics3D[{
+            Opacity[0], 
+            EdgeForm[
+             Opacity[0]], 
+            
+            Cuboid[{0 - 0.25, -$CellContext`bound$, -$CellContext`bound$}, {
+             1 + 0.25, $CellContext`bound$, $CellContext`bound$}]}]; \
+$CellContext`curve$ = ParametricPlot3D[{$CellContext`t, 0, 
+            (Sqrt[1 - #^2]& )[$CellContext`t]}, {$CellContext`t, 0, 1}, 
+           PlotStyle -> {Blue, Thick}]; $CellContext`axes$ = 
+         Graphics3D[{Black, 
+            Thickness[Medium], 
+            InfiniteLine[{0, 0, 0}, {1, 0, 0}], 
+            InfiniteLine[{0, 0, 0}, {0, 1, 0}], 
+            InfiniteLine[{0, 0, 0}, {0, 0, 1}]}]; $CellContext`disk$ = 
+         Graphics3D[{
+            
+            Cylinder[{{$CellContext`x$$ - $CellContext`dx$/2, 0, 
+               0}, {$CellContext`x$$ + $CellContext`dx$/2, 0, 0}}, 
+             (Sqrt[1 - #^2]& )[$CellContext`x$$]]}]; 
+        Show[$CellContext`box$, $CellContext`axes$, $CellContext`curve$, \
+$CellContext`disk$, PlotRange -> All, Axes -> True]], 
+      "Specifications" :> {{{$CellContext`x$$, 
+          Rational[1, 3]}, 0, 1}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {230., 236.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.8398025094940586`*^9, {3.8398025655645742`*^9, 3.839802578873889*^9}},
+ CellLabel->
+  "Out[148]=",ExpressionUUID->"293606f2-ccaf-4934-ad31-683050b0456c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"f", "=", 
+     RowBox[{
+      SqrtBox["#"], "&"}]}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"TableForm", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"revolve", "[", "f", "]"}], ",", 
+        RowBox[{"approximate", "[", "f", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"rectangle", "[", "f", "]"}], ",", 
+        RowBox[{"cylinder", "[", "f", "]"}]}], "}"}]}], "}"}], "]"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.839800003046357*^9, 3.8398000151162543`*^9}, 
+   3.8398026207841187`*^9, {3.839802670960517*^9, 3.8398026723948245`*^9}, {
+   3.8398027970301204`*^9, 3.83980280115219*^9}, {3.839802914473775*^9, 
+   3.8398029591850023`*^9}, {3.8398030059542027`*^9, 3.8398030189275117`*^9}},
+ CellLabel->
+  "In[161]:=",ExpressionUUID->"89240de6-6025-4991-9f33-cdeb508baf62"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     TagBox[
+      StyleBox[
+       DynamicModuleBox[{$CellContext`\[Theta]$$ = 6.283185307179586, 
+        Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+        Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, 
+        Typeset`animvar$$ = 1, Typeset`name$$ = "\"untitled\"", 
+        Typeset`specs$$ = {{{
+           Hold[$CellContext`\[Theta]$$], 0.001}, 0.001, 2 Pi}}, 
+        Typeset`size$$ = {360., {183., 189.}}, Typeset`update$$ = 0, 
+        Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+        DynamicBox[Manipulate`ManipulateBoxes[
+         1, StandardForm, "Variables" :> {$CellContext`\[Theta]$$ = 0.001}, 
+          "ControllerVariables" :> {}, 
+          "OtherVariables" :> {
+           Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+            Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+            Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+            Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+          Module[{$CellContext`box$, $CellContext`bound$, $CellContext`surf$, \
+$CellContext`cap1$, $CellContext`cap2$, $CellContext`curve$, \
+$CellContext`axes$}, $CellContext`bound$ = Max[
+                Abs[0], 
+                Abs[1]] + 0.25; $CellContext`box$ = Graphics3D[{
+                Opacity[0], 
+                EdgeForm[
+                 Opacity[0]], 
+                
+                Cuboid[{
+                 0 - 0.25, -$CellContext`bound$, -$CellContext`bound$}, {
+                 1 + 0.25, $CellContext`bound$, $CellContext`bound$}]}]; \
+$CellContext`surf$ = RevolutionPlot3D[{
+                (Sqrt[#]& )[$CellContext`x], $CellContext`x}, {$CellContext`x,
+                 0, 1}, {$CellContext`t, Pi, 
+                Pi + $CellContext`\[Theta]$$}]; $CellContext`curve$ = 
+             ParametricPlot3D[{$CellContext`t, 0, 
+                (Sqrt[#]& )[$CellContext`t]}, {$CellContext`t, 0, 1}, 
+               PlotStyle -> {Blue, Thick}]; $CellContext`axes$ = 
+             Graphics3D[{Black, 
+                Thickness[Medium], 
+                InfiniteLine[{0, 0, 0}, {1, 0, 0}], 
+                InfiniteLine[{0, 0, 0}, {0, 1, 0}], 
+                InfiniteLine[{0, 0, 0}, {0, 0, 1}]}]; 
+            Show[$CellContext`box$, $CellContext`axes$, 
+              Apply[Graphics3D[
+                Rotate[#, Pi/2, {0, 1, 0}], PlotRange -> All, 
+                SlotSequence[2]]& , $CellContext`surf$], $CellContext`curve$, 
+              PlotRange -> All, Axes -> True]], 
+          "Specifications" :> {{{$CellContext`\[Theta]$$, 0.001}, 0.001, 2 
+             Pi}}, "Options" :> {}, "DefaultOptions" :> {}],
+         ImageSizeCache->{411., {230., 236.}},
+         SingleEvaluation->True],
+        Deinitialization:>None,
+        DynamicModuleValues:>{},
+        SynchronousInitialization->True,
+        UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+        UnsavedVariables:>{Typeset`initDone$$},
+        UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+       Deployed->True,
+       StripOnInput->False],
+      Manipulate`InterpretManipulate[1]], 
+     TagBox[
+      StyleBox[
+       DynamicModuleBox[{$CellContext`n$$ = 9, Typeset`show$$ = True, 
+        Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+        Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+        "\"untitled\"", Typeset`specs$$ = {{{
+           Hold[$CellContext`n$$], 10}, 1, 20, 1}}, Typeset`size$$ = {
+        360., {183., 189.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+        Typeset`skipInitDone$$ = True}, 
+        DynamicBox[Manipulate`ManipulateBoxes[
+         1, StandardForm, "Variables" :> {$CellContext`n$$ = 10}, 
+          "ControllerVariables" :> {}, 
+          "OtherVariables" :> {
+           Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+            Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+            Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+            Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+          Module[{$CellContext`box$, $CellContext`bound$, \
+$CellContext`curve$, $CellContext`axes$, $CellContext`disks$, \
+$CellContext`dx$}, $CellContext`dx$ = (1 - 
+               0)/$CellContext`n$$; $CellContext`bound$ = Max[
+                Abs[0], 
+                Abs[1]] + 0.25; $CellContext`box$ = Graphics3D[{
+                Opacity[0], 
+                EdgeForm[
+                 Opacity[0]], 
+                
+                Cuboid[{
+                 0 - 0.25, -$CellContext`bound$, -$CellContext`bound$}, {
+                 1 + 0.25, $CellContext`bound$, $CellContext`bound$}]}]; \
+$CellContext`curve$ = ParametricPlot3D[{$CellContext`t, 0, 
+                (Sqrt[#]& )[$CellContext`t]}, {$CellContext`t, 0, 1}, 
+               PlotStyle -> {Blue, Thick}]; $CellContext`axes$ = 
+             Graphics3D[{Black, 
+                Thickness[Medium], 
+                InfiniteLine[{0, 0, 0}, {1, 0, 0}], 
+                InfiniteLine[{0, 0, 0}, {0, 1, 0}], 
+                InfiniteLine[{0, 0, 0}, {0, 0, 1}]}]; $CellContext`disks$ = 
+             Graphics3D[
+               Join[{}, 
+                Table[
+                 
+                 Cylinder[{{$CellContext`x - $CellContext`dx$/2, 0, 
+                    0}, {$CellContext`x + $CellContext`dx$/2, 0, 0}}, 
+                  (Sqrt[#]& )[$CellContext`x]], {$CellContext`x, 
+                  0 + $CellContext`dx$/2, 1 - $CellContext`dx$/
+                  2, $CellContext`dx$}]]]; 
+            Show[$CellContext`box$, $CellContext`axes$, $CellContext`curve$, \
+$CellContext`disks$, PlotRange -> All, Axes -> True]], 
+          "Specifications" :> {{{$CellContext`n$$, 10}, 1, 20, 1}}, 
+          "Options" :> {}, "DefaultOptions" :> {}],
+         ImageSizeCache->{411., {230., 236.}},
+         SingleEvaluation->True],
+        Deinitialization:>None,
+        DynamicModuleValues:>{},
+        SynchronousInitialization->True,
+        UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+        UnsavedVariables:>{Typeset`initDone$$},
+        UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+       Deployed->True,
+       StripOnInput->False],
+      Manipulate`InterpretManipulate[1]]},
+    {
+     TagBox[
+      StyleBox[
+       DynamicModuleBox[{$CellContext`x$$ = 0.068, Typeset`show$$ = True, 
+        Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+        Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+        "\"untitled\"", Typeset`specs$$ = {{{
+           Hold[$CellContext`x$$], 
+           Rational[1, 3]}, 0, 1}}, Typeset`size$$ = {360., {177., 182.}}, 
+        Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+        True}, 
+        DynamicBox[Manipulate`ManipulateBoxes[
+         1, StandardForm, "Variables" :> {$CellContext`x$$ = Rational[1, 3]}, 
+          "ControllerVariables" :> {}, 
+          "OtherVariables" :> {
+           Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+            Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+            Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+            Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+          Module[{$CellContext`box$, $CellContext`curve$, $CellContext`rec$, \
+$CellContext`dx$}, $CellContext`dx$ = 0.05 (1 - 0); $CellContext`box$ = 
+             Graphics[{
+                Opacity[0], 
+                
+                Rectangle[{0 - 0.25, 0 - 0.25}, {
+                 1 + 0.25, 1 + 0.25}]}]; $CellContext`curve$ = Plot[
+               (Sqrt[#]& )[$CellContext`t], {$CellContext`t, 0, 1}, 
+               PlotStyle -> {Blue, Thick}]; $CellContext`rec$ = 
+             Graphics[{LightOrange, 
+                
+                Rectangle[{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+                  0}, {$CellContext`x$$ + 0.5 $CellContext`dx$, 
+                  (Sqrt[#]& )[$CellContext`x$$]}], Black, 
+                
+                Line[{{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+                   0}, {$CellContext`x$$ + 0.5 $CellContext`dx$, 
+                   0}, {$CellContext`x$$ + 0.5 $CellContext`dx$, 
+                   (Sqrt[#]& )[$CellContext`x$$]}, {$CellContext`x$$ - 
+                   0.5 $CellContext`dx$, 
+                   (Sqrt[#]& )[$CellContext`x$$]}, {$CellContext`x$$ - 
+                   0.5 $CellContext`dx$, 0}}], Dashed, 
+                Line[{{$CellContext`x$$, 0}, {$CellContext`x$$, 
+                   (Sqrt[#]& )[$CellContext`x$$]}}]}]; 
+            Show[$CellContext`box$, $CellContext`curve$, $CellContext`rec$, 
+              PlotRange -> All, Axes -> True]], 
+          "Specifications" :> {{{$CellContext`x$$, 
+              Rational[1, 3]}, 0, 1}}, "Options" :> {}, 
+          "DefaultOptions" :> {}],
+         ImageSizeCache->{411., {224., 230.}},
+         SingleEvaluation->True],
+        Deinitialization:>None,
+        DynamicModuleValues:>{},
+        SynchronousInitialization->True,
+        UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+        UnsavedVariables:>{Typeset`initDone$$},
+        UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+       Deployed->True,
+       StripOnInput->False],
+      Manipulate`InterpretManipulate[1]], 
+     TagBox[
+      StyleBox[
+       DynamicModuleBox[{$CellContext`x$$ = 0.03, Typeset`show$$ = True, 
+        Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+        Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+        "\"untitled\"", Typeset`specs$$ = {{{
+           Hold[$CellContext`x$$], 
+           Rational[1, 3]}, 0, 1}}, Typeset`size$$ = {360., {183., 189.}}, 
+        Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+        True}, 
+        DynamicBox[Manipulate`ManipulateBoxes[
+         1, StandardForm, "Variables" :> {$CellContext`x$$ = Rational[1, 3]}, 
+          "ControllerVariables" :> {}, 
+          "OtherVariables" :> {
+           Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+            Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+            Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+            Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> 
+          Module[{$CellContext`box$, $CellContext`bound$, \
+$CellContext`curve$, $CellContext`axes$, $CellContext`disk$, \
+$CellContext`dx$}, $CellContext`dx$ = 0.1 (1 - 0); $CellContext`bound$ = Max[
+                Abs[0], 
+                Abs[1]] + 0.25; $CellContext`box$ = Graphics3D[{
+                Opacity[0], 
+                EdgeForm[
+                 Opacity[0]], 
+                
+                Cuboid[{
+                 0 - 0.25, -$CellContext`bound$, -$CellContext`bound$}, {
+                 1 + 0.25, $CellContext`bound$, $CellContext`bound$}]}]; \
+$CellContext`curve$ = ParametricPlot3D[{$CellContext`t, 0, 
+                (Sqrt[#]& )[$CellContext`t]}, {$CellContext`t, 0, 1}, 
+               PlotStyle -> {Blue, Thick}]; $CellContext`axes$ = 
+             Graphics3D[{Black, 
+                Thickness[Medium], 
+                InfiniteLine[{0, 0, 0}, {1, 0, 0}], 
+                InfiniteLine[{0, 0, 0}, {0, 1, 0}], 
+                InfiniteLine[{0, 0, 0}, {0, 0, 1}]}]; $CellContext`disk$ = 
+             Graphics3D[{
+                
+                Cylinder[{{$CellContext`x$$ - $CellContext`dx$/2, 0, 
+                   0}, {$CellContext`x$$ + $CellContext`dx$/2, 0, 0}}, 
+                 (Sqrt[#]& )[$CellContext`x$$]]}]; 
+            Show[$CellContext`box$, $CellContext`axes$, $CellContext`curve$, \
+$CellContext`disk$, PlotRange -> All, Axes -> True]], 
+          "Specifications" :> {{{$CellContext`x$$, 
+              Rational[1, 3]}, 0, 1}}, "Options" :> {}, 
+          "DefaultOptions" :> {}],
+         ImageSizeCache->{411., {230., 236.}},
+         SingleEvaluation->True],
+        Deinitialization:>None,
+        DynamicModuleValues:>{},
+        SynchronousInitialization->True,
+        UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+        UnsavedVariables:>{Typeset`initDone$$},
+        UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+       Deployed->True,
+       StripOnInput->False],
+      Manipulate`InterpretManipulate[1]]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.8398029597381597`*^9, 3.8398030204506536`*^9},
+ CellLabel->
+  "Out[161]//TableForm=",ExpressionUUID->"2e24a875-7b00-43f2-bc7d-\
+f1336a0e514f"]
+}, Open  ]]
+},
+WindowSize->{760, 833},
+WindowMargins->{{543, Automatic}, {Automatic, 36}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f419e265-c826-4699-9c0f-6ce65094848c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 5533, 132, 276, "Input",ExpressionUUID->"214f8f57-a22f-496d-96a9-f38be09c38bd"],
+Cell[CellGroupData[{
+Cell[6116, 156, 294, 8, 39, "Input",ExpressionUUID->"8b1123d4-cbeb-44c6-97c6-9f773e0acfeb"],
+Cell[6413, 166, 3507, 68, 485, "Output",ExpressionUUID->"1241a399-3db0-494c-9aed-ddcc712ea632"]
+}, Open  ]],
+Cell[9935, 237, 5775, 139, 314, "Input",ExpressionUUID->"f3df4f84-71aa-4c9c-9d88-f9a47ee1559d"],
+Cell[CellGroupData[{
+Cell[15735, 380, 295, 8, 39, "Input",ExpressionUUID->"df54c550-d034-49a0-a994-41a7365cf928"],
+Cell[16033, 390, 3083, 64, 485, "Output",ExpressionUUID->"30dfb3ad-e086-4b84-8f72-75bfa32d28d4"]
+}, Open  ]],
+Cell[19131, 457, 4840, 126, 257, "Input",ExpressionUUID->"93454aae-0c9d-4821-855a-004403c98d6d"],
+Cell[CellGroupData[{
+Cell[23996, 587, 296, 8, 39, "Input",ExpressionUUID->"076580b5-2836-4a9a-ab45-d67c954ccc03"],
+Cell[24295, 597, 3019, 61, 473, "Output",ExpressionUUID->"773784da-4c26-47d0-bb7c-48923fe13ad3"]
+}, Open  ]],
+Cell[27329, 661, 5512, 134, 276, "Input",ExpressionUUID->"752f8b11-8d91-4b76-b8c2-9900f3afc3dc"],
+Cell[CellGroupData[{
+Cell[32866, 799, 295, 8, 39, "Input",ExpressionUUID->"42d4c19c-c684-4bec-b222-36d43c8b51ec"],
+Cell[33164, 809, 2937, 60, 485, "Output",ExpressionUUID->"293606f2-ccaf-4934-ad31-683050b0456c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36138, 874, 960, 24, 77, "Input",ExpressionUUID->"89240de6-6025-4991-9f33-cdeb508baf62"],
+Cell[37101, 900, 12720, 257, 970, "Output",ExpressionUUID->"2e24a875-7b00-43f2-bc7d-f1336a0e514f"]
+}, Open  ]]
+}
+]
+*)
+
