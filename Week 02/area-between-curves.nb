@@ -10,240 +10,14 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     56017,       1374]
-NotebookOptionsPosition[     54781,       1346]
-NotebookOutlinePosition[     55184,       1362]
-CellTagsIndexPosition[     55141,       1359]
+NotebookDataLength[     73380,       1770]
+NotebookOptionsPosition[     72004,       1739]
+NotebookOutlinePosition[     72407,       1755]
+CellTagsIndexPosition[     72364,       1752]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[
- RowBox[{
-  RowBox[{"(*", " ", 
-   RowBox[{
-   "Displays", " ", "the", " ", "typical", " ", "rectangle", " ", "for", " ", 
-    "calculating", " ", "the", " ", "area", " ", "between", " ", "upper", " ",
-     "curve", " ", "f", " ", "and", " ", "lower", " ", "curve", " ", "g", " ",
-     "over", " ", "the", " ", 
-    RowBox[{
-     RowBox[{"interval", " ", "[", 
-      RowBox[{"a", ",", "b"}], "]"}], "."}]}], " ", "*)"}], 
-  "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{"areax", "[", 
-    RowBox[{"f_", ",", "g_", ",", 
-     RowBox[{"a_", ":", "0"}], ",", 
-     RowBox[{"b_", ":", "1"}], ",", 
-     RowBox[{"ay_", ":", "0"}], ",", 
-     RowBox[{"by_", ":", "1"}], ",", 
-     RowBox[{"buffer_", ":", "0.25"}]}], "]"}], ":=", 
-   RowBox[{"Manipulate", "[", 
-    RowBox[{
-     RowBox[{"Module", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"len", "=", 
-          RowBox[{"b", "-", "a"}]}], ",", "dx", ",", "curves", ",", "rec"}], 
-        "}"}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"dx", "=", 
-         RowBox[{"0.05", "len"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{"curves", "=", 
-         RowBox[{"Plot", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"f", "[", "t", "]"}], ",", 
-             RowBox[{"g", "[", "t", "]"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"t", ",", 
-             RowBox[{"a", "-", "buffer"}], ",", 
-             RowBox[{"b", "+", "buffer"}]}], "}"}], ",", 
-           RowBox[{"PlotStyle", "\[Rule]", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"Directive", "[", 
-               RowBox[{"Red", ",", "Thick"}], "]"}], ",", 
-              RowBox[{"Directive", "[", 
-               RowBox[{"Blue", ",", "Thick"}], "]"}]}], "}"}]}]}], "]"}]}], 
-        ";", "\[IndentingNewLine]", 
-        RowBox[{"rec", "=", 
-         RowBox[{"Graphics", "[", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"If", "[", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"f", "[", "x", "]"}], "\[GreaterEqual]", 
-               RowBox[{"g", "[", "x", "]"}]}], ",", "LightRed", ",", 
-              "LightBlue"}], "]"}], ",", 
-            RowBox[{"Rectangle", "[", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"x", "-", 
-                 RowBox[{"0.5", "dx"}]}], ",", 
-                RowBox[{"g", "[", "x", "]"}]}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"x", "+", 
-                 RowBox[{"0.5", "dx"}]}], ",", 
-                RowBox[{"f", "[", "x", "]"}]}], "}"}]}], "]"}], ",", "Black", 
-            ",", 
-            RowBox[{"Line", "[", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"x", "-", 
-                  RowBox[{"0.5", "dx"}]}], ",", 
-                 RowBox[{"g", "[", "x", "]"}]}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"x", "+", 
-                  RowBox[{"0.5", "dx"}]}], ",", 
-                 RowBox[{"g", "[", "x", "]"}]}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"x", "+", 
-                  RowBox[{"0.5", "dx"}]}], ",", 
-                 RowBox[{"f", "[", "x", "]"}]}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"x", "-", 
-                  RowBox[{"0.5", "dx"}]}], ",", 
-                 RowBox[{"f", "[", "x", "]"}]}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"x", "-", 
-                  RowBox[{"0.5", "dx"}]}], ",", 
-                 RowBox[{"g", "[", "x", "]"}]}], "}"}]}], "}"}], "]"}], ",", 
-            "Dashed", ",", 
-            RowBox[{"Line", "[", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"x", ",", 
-                 RowBox[{"g", "[", "x", "]"}]}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"x", ",", 
-                 RowBox[{"f", "[", "x", "]"}]}], "}"}]}], "}"}], "]"}]}], 
-           "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{"Show", "[", 
-         RowBox[{"curves", ",", "rec", ",", 
-          RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
-          RowBox[{"PlotRange", "\[Rule]", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"a", "-", "buffer"}], ",", 
-               RowBox[{"b", "+", "buffer"}]}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"ay", ",", "by"}], "}"}]}], "}"}]}]}], "]"}]}]}], 
-      "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"x", ",", 
-         RowBox[{"a", "+", 
-          RowBox[{
-           RowBox[{"(", 
-            RowBox[{"b", "-", "a"}], ")"}], "/", "3"}]}]}], "}"}], ",", "a", 
-       ",", "b"}], "}"}]}], "]"}]}]}]], "Input",
- CellChangeTimes->{{3.8397985996213784`*^9, 3.839798689654429*^9}, {
-  3.839798729034423*^9, 3.839798851162185*^9}, {3.839798927234947*^9, 
-  3.839798941046616*^9}, {3.839798980245197*^9, 3.8397990924800158`*^9}, {
-  3.839799138746095*^9, 3.8397994192367373`*^9}, {3.8397994566146574`*^9, 
-  3.839799505403514*^9}, {3.8397995375862865`*^9, 3.8397995789540253`*^9}, {
-  3.839801654604528*^9, 3.8398016652046547`*^9}, {3.839844478084443*^9, 
-  3.839844514241499*^9}},
- CellLabel->"In[3]:=",ExpressionUUID->"b948f1ab-270e-4a68-a940-3f92213591ab"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"areax", "[", 
-  RowBox[{
-   RowBox[{
-    RowBox[{
-     RowBox[{"2", "#"}], "-", 
-     SuperscriptBox["#", "2"]}], "&"}], ",", 
-   RowBox[{
-    SuperscriptBox["#", "2"], "&"}], ",", "0", ",", "2", ",", "0", ",", "2"}],
-   "]"}]], "Input",
- CellChangeTimes->{{3.839799096308053*^9, 3.839799132814453*^9}, {
-  3.8397994459578257`*^9, 3.8397994487864304`*^9}, {3.83979954467768*^9, 
-  3.839799546888765*^9}},
- CellLabel->"In[4]:=",ExpressionUUID->"f74a2702-53db-4386-90e1-0fa124bdbe6d"],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`x$$ = 0.465, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{{
-       Hold[$CellContext`x$$], 
-       Rational[2, 3]}, 0, 2}}, Typeset`size$$ = {360., {151., 157.}}, 
-    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`x$$ = Rational[2, 3]}, 
-      "ControllerVariables" :> {}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> 
-      Module[{$CellContext`len$ = 
-         2 - 0, $CellContext`dx$, $CellContext`curves$, $CellContext`rec$}, \
-$CellContext`dx$ = 0.05 $CellContext`len$; $CellContext`curves$ = Plot[{
-            (2 # - #^2& )[$CellContext`t], 
-            (#^2& )[$CellContext`t]}, {$CellContext`t, 0 - 0.25, 2 + 0.25}, 
-           PlotStyle -> {
-             Directive[Red, Thick], 
-             Directive[Blue, Thick]}]; $CellContext`rec$ = Graphics[{
-            
-            If[(2 # - #^2& )[$CellContext`x$$] >= (#^2& )[$CellContext`x$$], 
-             LightRed, LightBlue], 
-            Rectangle[{$CellContext`x$$ - 0.5 $CellContext`dx$, 
-              (#^2& )[$CellContext`x$$]}, {$CellContext`x$$ + 
-              0.5 $CellContext`dx$, 
-              (2 # - #^2& )[$CellContext`x$$]}], Black, 
-            Line[{{$CellContext`x$$ - 0.5 $CellContext`dx$, 
-               (#^2& )[$CellContext`x$$]}, {$CellContext`x$$ + 
-               0.5 $CellContext`dx$, 
-               (#^2& )[$CellContext`x$$]}, {$CellContext`x$$ + 
-               0.5 $CellContext`dx$, 
-               (2 # - #^2& )[$CellContext`x$$]}, {$CellContext`x$$ - 
-               0.5 $CellContext`dx$, 
-               (2 # - #^2& )[$CellContext`x$$]}, {$CellContext`x$$ - 
-               0.5 $CellContext`dx$, 
-               (#^2& )[$CellContext`x$$]}}], Dashed, 
-            Line[{{$CellContext`x$$, 
-               (#^2& )[$CellContext`x$$]}, {$CellContext`x$$, 
-               (2 # - #^2& )[$CellContext`x$$]}}]}]; 
-        Show[$CellContext`curves$, $CellContext`rec$, AspectRatio -> 
-          Automatic, PlotRange -> {{0 - 0.25, 2 + 0.25}, {0, 2}}]], 
-      "Specifications" :> {{{$CellContext`x$$, 
-          Rational[2, 3]}, 0, 2}}, "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{411., {198., 204.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.8398444919329453`*^9, 3.8398445160863667`*^9}},
- CellLabel->"Out[4]=",ExpressionUUID->"b568dc91-7eaf-4b72-a56b-9148a6db58cd"]
-}, Open  ]],
-
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", " ", 
@@ -291,8 +65,8 @@ Cell[BoxData[
            RowBox[{"alist", "[", 
             RowBox[{"[", 
              RowBox[{"-", "1"}], "]"}], "]"}]}]}], ",", "dx", ",", "curves", 
-         ",", "rec", ",", "int", ",", "switch"}], "}"}], ",", 
-       "\[IndentingNewLine]", 
+         ",", "rec", ",", "int", ",", "switch", ",", "highlight"}], "}"}], 
+       ",", "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"dx", "=", 
          RowBox[{"0.05", "len"}]}], ";", "\[IndentingNewLine]", 
@@ -324,8 +98,9 @@ Cell[BoxData[
              RowBox[{"b", "+", "buffer"}]}], "}"}], ",", 
            RowBox[{"PlotStyle", "\[Rule]", 
             RowBox[{"Directive", "[", 
-             RowBox[{"Black", ",", "Thick"}], "]"}]}]}], "]"}]}], ";", 
-        "\[IndentingNewLine]", 
+             RowBox[{"Black", ",", 
+              RowBox[{"Thickness", "[", "Medium", "]"}]}], "]"}]}]}], "]"}]}],
+         ";", "\[IndentingNewLine]", 
         RowBox[{"switch", "=", 
          RowBox[{"Graphics", "[", 
           RowBox[{"Join", "[", 
@@ -360,7 +135,27 @@ Cell[BoxData[
                RowBox[{"i", ",", "2", ",", 
                 RowBox[{
                  RowBox[{"Length", "[", "alist", "]"}], "-", "1"}]}], "}"}]}],
-              "]"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"InfiniteLine", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"alist", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1"}], "}"}]}], "]"}], ",", 
+              RowBox[{"InfiniteLine", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"alist", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"-", "1"}], "]"}], "]"}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1"}], "}"}]}], "]"}]}], "}"}]}], "]"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"int", "=", "1"}], ";", "\[IndentingNewLine]", 
         RowBox[{"Do", "[", "\[IndentingNewLine]", 
          RowBox[{
@@ -380,10 +175,45 @@ Cell[BoxData[
             RowBox[{
              RowBox[{"Length", "[", "alist", "]"}], "-", "1"}]}], "}"}]}], 
          "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"highlight", "=", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"flist", "[", 
+               RowBox[{"[", "int", "]"}], "]"}], "[", "t", "]"}], ",", 
+             RowBox[{
+              RowBox[{"glist", "[", 
+               RowBox[{"[", "int", "]"}], "]"}], "[", "t", "]"}]}], "}"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", 
+             RowBox[{"a", "-", "buffer"}], ",", 
+             RowBox[{"b", "+", "buffer"}]}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Directive", "[", 
+               RowBox[{"Red", ",", "Thick"}], "]"}], ",", 
+              RowBox[{"Directive", "[", 
+               RowBox[{"Blue", ",", "Thick"}], "]"}]}], "}"}]}]}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
         RowBox[{"rec", "=", 
          RowBox[{"Graphics", "[", 
           RowBox[{"{", 
-           RowBox[{"LightRed", ",", 
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"flist", "[", 
+                 RowBox[{"[", "int", "]"}], "]"}], "[", "x", "]"}], 
+               "\[GreaterEqual]", 
+               RowBox[{
+                RowBox[{"glist", "[", 
+                 RowBox[{"[", "int", "]"}], "]"}], "[", "x", "]"}]}], ",", 
+              "LightRed", ",", "LightBlue"}], "]"}], ",", 
             RowBox[{"Rectangle", "[", 
              RowBox[{
               RowBox[{"{", 
@@ -462,7 +292,7 @@ Cell[BoxData[
                 "}"}]}], "}"}], "]"}]}], "}"}], "]"}]}], ";", 
         "\[IndentingNewLine]", 
         RowBox[{"Show", "[", 
-         RowBox[{"curves", ",", "switch", ",", "rec", ",", 
+         RowBox[{"curves", ",", "highlight", ",", "switch", ",", "rec", ",", 
           RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
           RowBox[{"PlotRange", "\[Rule]", 
            RowBox[{"{", 
@@ -500,139 +330,10 @@ Cell[BoxData[
    3.839845622790862*^9}, {3.839846043627763*^9, 3.8398461354105015`*^9}, 
    3.8398462658831763`*^9, {3.839846308374992*^9, 3.8398463288475904`*^9}, {
    3.839846748047986*^9, 3.8398468464842076`*^9}, {3.8398468789064813`*^9, 
-   3.839846916835591*^9}},
- CellLabel->"In[60]:=",ExpressionUUID->"cc550474-d7ae-4c9c-8613-95c41d2d69a2"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"areaxlist", "[", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"#", "&"}], ",", 
-     RowBox[{
-      RowBox[{"1", "/", "#"}], "&"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"#", "/", "4"}], "&"}], ",", 
-     RowBox[{
-      RowBox[{"#", "/", "4"}], "&"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"0", ",", "1", ",", "2"}], "}"}], ",", 
-   RowBox[{"-", "0.25"}], ",", "1.25"}], "]"}]], "Input",
- CellChangeTimes->{{3.8398450939561467`*^9, 3.839845143722001*^9}, {
-  3.839845479898424*^9, 3.839845500803219*^9}},
- CellLabel->"In[61]:=",ExpressionUUID->"f5407b48-d5b9-4fef-b358-741e1e64c092"],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`x$$ = 0.62, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{{
-       Hold[$CellContext`x$$], 
-       Rational[2, 3]}, 0, 2}}, Typeset`size$$ = {360., {113., 118.}}, 
-    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`x$$ = Rational[2, 3]}, 
-      "ControllerVariables" :> {}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> 
-      Module[{$CellContext`a$ = Part[{0, 1, 2}, 1], $CellContext`b$ = 
-         Part[{0, 1, 2}, -1], $CellContext`len$ = 
-         Part[{0, 1, 2}, 1] - 
-          Part[{0, 1, 
-           2}, -1], $CellContext`dx$, $CellContext`curves$, \
-$CellContext`rec$, $CellContext`int$, $CellContext`switch$}, $CellContext`dx$ = 
-         0.05 $CellContext`len$; $CellContext`curves$ = Plot[
-           Join[
-            Table[
-             
-             Part[{#& , 
-               1/#& }, $CellContext`i][$CellContext`t], {$CellContext`i, 1, 
-              Length[{#& , 1/#& }]}], 
-            Table[
-             
-             Part[{#/4& , #/
-               4& }, $CellContext`i][$CellContext`t], {$CellContext`i, 1, 
-              Length[{#/4& , #/4& }]}]], {$CellContext`t, $CellContext`a$ - 
-            0.25, $CellContext`b$ + 0.25}, PlotStyle -> 
-           Directive[Black, Thick]]; $CellContext`switch$ = Graphics[
-           Join[{Black, Dashed}, 
-            Table[
-             Line[{{
-                Part[{0, 1, 2}, $CellContext`i], 
-                Part[{#/4& , #/4& }, $CellContext`i][
-                 Part[{0, 1, 2}, $CellContext`i]]}, {
-                Part[{0, 1, 2}, $CellContext`i], 
-                Part[{#& , 1/#& }, $CellContext`i][
-                 Part[{0, 1, 2}, $CellContext`i]]}}], {$CellContext`i, 2, 
-              Length[{0, 1, 2}] - 1}]]]; $CellContext`int$ = 1; Do[
-          If[$CellContext`x$$ <= Part[{0, 1, 2}, $CellContext`int$ + 1], 
-           Break[], AddTo[$CellContext`int$, 1]; Null], {$CellContext`i, 2, 
-           Length[{0, 1, 2}] - 1}]; $CellContext`rec$ = Graphics[{LightRed, 
-            Rectangle[{$CellContext`x$$ - 0.5 $CellContext`dx$, 
-              
-              Part[{#/4& , #/
-                4& }, $CellContext`int$][$CellContext`x$$]}, \
-{$CellContext`x$$ + 0.5 $CellContext`dx$, 
-              Part[{#& , 1/#& }, $CellContext`int$][$CellContext`x$$]}], 
-            Black, 
-            Line[{{$CellContext`x$$ - 0.5 $CellContext`dx$, 
-               
-               Part[{#/4& , #/
-                 4& }, $CellContext`int$][$CellContext`x$$]}, \
-{$CellContext`x$$ + 0.5 $CellContext`dx$, 
-               
-               Part[{#/4& , #/
-                 4& }, $CellContext`int$][$CellContext`x$$]}, \
-{$CellContext`x$$ + 0.5 $CellContext`dx$, 
-               
-               Part[{#& , 
-                 1/#& }, $CellContext`int$][$CellContext`x$$]}, \
-{$CellContext`x$$ - 0.5 $CellContext`dx$, 
-               
-               Part[{#& , 
-                 1/#& }, $CellContext`int$][$CellContext`x$$]}, \
-{$CellContext`x$$ - 0.5 $CellContext`dx$, 
-               Part[{#/4& , #/4& }, $CellContext`int$][$CellContext`x$$]}}], 
-            Dashed, 
-            Line[{{$CellContext`x$$, 
-               
-               Part[{#/4& , #/
-                 4& }, $CellContext`int$][$CellContext`x$$]}, \
-{$CellContext`x$$, 
-               Part[{#& , 1/#& }, $CellContext`int$][$CellContext`x$$]}}]}]; 
-        Show[$CellContext`curves$, $CellContext`switch$, $CellContext`rec$, 
-          AspectRatio -> Automatic, 
-          PlotRange -> {{$CellContext`a$ - 0.25, $CellContext`b$ + 
-             0.25}, {-0.25, 1.25}}]], "Specifications" :> {{{$CellContext`x$$, 
-          Rational[2, 3]}, 0, 2}}, "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{411., {160., 166.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{
-  3.8398451482248297`*^9, {3.8398452307376184`*^9, 3.8398452740002584`*^9}, {
-   3.839845319469283*^9, 3.839845390034782*^9}, {3.839845423171734*^9, 
-   3.839845437399554*^9}, {3.8398454677959113`*^9, 3.839845510848692*^9}, 
-   3.8398456253836946`*^9, 3.839846143129512*^9, {3.839846830235496*^9, 
-   3.8398468479405594`*^9}, {3.839846880808055*^9, 3.839846919316399*^9}},
- CellLabel->"Out[61]=",ExpressionUUID->"3d070331-47a3-4d34-b8a6-6154e5d12a5b"]
-}, Open  ]],
+   3.839846916835591*^9}, {3.8399283894301157`*^9, 3.839928587946836*^9}, {
+   3.8399286210338163`*^9, 3.8399286611055484`*^9}, {3.8399287164041586`*^9, 
+   3.839928772170344*^9}, {3.8399290859772253`*^9, 3.839929088315456*^9}},
+ CellLabel->"In[43]:=",ExpressionUUID->"cc550474-d7ae-4c9c-8613-95c41d2d69a2"],
 
 Cell[BoxData[
  RowBox[{
@@ -711,7 +412,8 @@ Cell[BoxData[
            RowBox[{"ailist", "[", 
             RowBox[{"[", "1", "]"}], "]"}]}]}], ",", "dx", ",", "dy", ",", 
          "curves", ",", "recx", ",", "recy", ",", "int", ",", "inti", ",", 
-         "switch", ",", "switchi"}], "}"}], ",", "\[IndentingNewLine]", 
+         "switch", ",", "switchi", ",", "highlight", ",", "highlighti"}], 
+        "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"dx", "=", 
          RowBox[{"0.05", "len"}]}], ";", "\[IndentingNewLine]", 
@@ -745,8 +447,9 @@ Cell[BoxData[
              RowBox[{"b", "+", "buffer"}]}], "}"}], ",", 
            RowBox[{"PlotStyle", "\[Rule]", 
             RowBox[{"Directive", "[", 
-             RowBox[{"Black", ",", "Thick"}], "]"}]}]}], "]"}]}], ";", 
-        "\[IndentingNewLine]", 
+             RowBox[{"Black", ",", 
+              RowBox[{"Thickness", "[", "Medium", "]"}]}], "]"}]}]}], "]"}]}],
+         ";", "\[IndentingNewLine]", 
         RowBox[{"switch", "=", 
          RowBox[{"Graphics", "[", 
           RowBox[{"Join", "[", 
@@ -781,7 +484,27 @@ Cell[BoxData[
                RowBox[{"i", ",", "2", ",", 
                 RowBox[{
                  RowBox[{"Length", "[", "alist", "]"}], "-", "1"}]}], "}"}]}],
-              "]"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"InfiniteLine", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"alist", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1"}], "}"}]}], "]"}], ",", 
+              RowBox[{"InfiniteLine", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"alist", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"-", "1"}], "]"}], "]"}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1"}], "}"}]}], "]"}]}], "}"}]}], "]"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"switchi", "=", 
          RowBox[{"Graphics", "[", 
           RowBox[{"Join", "[", 
@@ -816,7 +539,27 @@ Cell[BoxData[
                RowBox[{"i", ",", "2", ",", 
                 RowBox[{
                  RowBox[{"Length", "[", "ailist", "]"}], "-", "1"}]}], 
-               "}"}]}], "]"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+               "}"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"InfiniteLine", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", 
+                  RowBox[{"ailist", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "0"}], "}"}]}], "]"}], ",", 
+              RowBox[{"InfiniteLine", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", 
+                  RowBox[{"ailist", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"-", "1"}], "]"}], "]"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "0"}], "}"}]}], "]"}]}], "}"}]}], "]"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"int", "=", "1"}], ";", "\[IndentingNewLine]", 
         RowBox[{"Do", "[", "\[IndentingNewLine]", 
          RowBox[{
@@ -875,10 +618,74 @@ Cell[BoxData[
             RowBox[{
              RowBox[{"Length", "[", "ailist", "]"}], "-", "1"}]}], "}"}]}], 
          "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"highlight", "=", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"flist", "[", 
+               RowBox[{"[", "int", "]"}], "]"}], "[", "t", "]"}], ",", 
+             RowBox[{
+              RowBox[{"glist", "[", 
+               RowBox[{"[", "int", "]"}], "]"}], "[", "t", "]"}]}], "}"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", 
+             RowBox[{"a", "-", "buffer"}], ",", 
+             RowBox[{"b", "+", "buffer"}]}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Directive", "[", 
+               RowBox[{"Red", ",", "Thick"}], "]"}], ",", 
+              RowBox[{"Directive", "[", 
+               RowBox[{"Blue", ",", "Thick"}], "]"}]}], "}"}]}]}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"highlighti", "=", 
+         RowBox[{"ParametricPlot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"filist", "[", 
+                 RowBox[{"[", "inti", "]"}], "]"}], "[", "t", "]"}], ",", 
+               "t"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"gilist", "[", 
+                 RowBox[{"[", "inti", "]"}], "]"}], "[", "t", "]"}], ",", 
+               "t"}], "}"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", 
+             RowBox[{"ai", "-", "buffer"}], ",", 
+             RowBox[{"bi", "+", "buffer"}]}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Directive", "[", 
+               RowBox[{"Red", ",", "Thick"}], "]"}], ",", 
+              RowBox[{"Directive", "[", 
+               RowBox[{"Blue", ",", "Thick"}], "]"}]}], "}"}]}]}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
         RowBox[{"recx", "=", 
          RowBox[{"Graphics", "[", 
           RowBox[{"{", 
-           RowBox[{"LightRed", ",", 
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"flist", "[", 
+                 RowBox[{"[", "int", "]"}], "]"}], "[", "x", "]"}], 
+               "\[GreaterEqual]", 
+               RowBox[{
+                RowBox[{"glist", "[", 
+                 RowBox[{"[", "int", "]"}], "]"}], "[", "x", "]"}]}], ",", 
+              "LightRed", ",", "LightBlue"}], "]"}], ",", 
             RowBox[{"Rectangle", "[", 
              RowBox[{
               RowBox[{"{", 
@@ -959,7 +766,18 @@ Cell[BoxData[
         RowBox[{"recy", "=", 
          RowBox[{"Graphics", "[", 
           RowBox[{"{", 
-           RowBox[{"LightRed", ",", 
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"filist", "[", 
+                 RowBox[{"[", "inti", "]"}], "]"}], "[", "y", "]"}], 
+               "\[GreaterEqual]", 
+               RowBox[{
+                RowBox[{"gilist", "[", 
+                 RowBox[{"[", "inti", "]"}], "]"}], "[", "y", "]"}]}], ",", 
+              "LightRed", ",", "LightBlue"}], "]"}], ",", 
             RowBox[{"Rectangle", "[", 
              RowBox[{
               RowBox[{"{", 
@@ -1033,6 +851,10 @@ Cell[BoxData[
         "\[IndentingNewLine]", 
         RowBox[{"Show", "[", 
          RowBox[{"curves", ",", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"wrt", "\[Equal]", "0"}], ",", "highlight", ",", 
+            "highlighti"}], "]"}], ",", 
           RowBox[{"If", "[", 
            RowBox[{
             RowBox[{"wrt", "\[Equal]", "0"}], ",", "switch", ",", "switchi"}],
@@ -1112,8 +934,284 @@ Cell[BoxData[
   3.83984622863142*^9, 3.839846263084544*^9}, {3.8398463440387917`*^9, 
   3.8398464712369566`*^9}, {3.839846671104452*^9, 3.8398467145042963`*^9}, {
   3.8398469390333185`*^9, 3.8398472482852783`*^9}, {3.839847308845564*^9, 
-  3.839847524424649*^9}},
- CellLabel->"In[85]:=",ExpressionUUID->"543b088e-3dd3-4477-b8aa-b768810430cf"],
+  3.839847524424649*^9}, {3.839928809141811*^9, 3.8399288447132587`*^9}, {
+  3.839928897538938*^9, 3.839928918524949*^9}, {3.83992902766907*^9, 
+  3.8399290500640745`*^9}, {3.8399291432630033`*^9, 3.8399292115073442`*^9}, {
+  3.8399292599206505`*^9, 3.8399292944646387`*^9}},
+ CellLabel->"In[44]:=",ExpressionUUID->"543b088e-3dd3-4477-b8aa-b768810430cf"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"areaxlist", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"2", "#"}], "-", 
+      SuperscriptBox["#", "2"]}], "&"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     SuperscriptBox["#", "2"], "&"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1"}], "}"}], ",", 
+   RowBox[{"-", "0.5"}], ",", "1.5", ",", "0.5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8399295253932943`*^9, 3.839929607985414*^9}},
+ CellLabel->"In[47]:=",ExpressionUUID->"d513c85e-91ac-47c0-b0ae-3bd547802209"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`x$$ = 0.454, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`x$$], 
+       Rational[1, 3]}, 0, 1}}, Typeset`size$$ = {360., {188., 193.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`x$$ = Rational[1, 3]}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`a$ = Part[{0, 1}, 1], $CellContext`b$ = 
+         Part[{0, 1}, -1], $CellContext`len$ = 
+         Part[{0, 1}, 1] - 
+          Part[{0, 
+           1}, -1], $CellContext`dx$, $CellContext`curves$, \
+$CellContext`rec$, $CellContext`int$, $CellContext`switch$, \
+$CellContext`highlight$}, $CellContext`dx$ = 
+         0.05 $CellContext`len$; $CellContext`curves$ = Plot[
+           Join[
+            Table[
+             
+             Part[{2 # - #^2& }, $CellContext`i][$CellContext`t], \
+{$CellContext`i, 1, 
+              Length[{2 # - #^2& }]}], 
+            Table[
+             
+             Part[{#^2& }, $CellContext`i][$CellContext`t], {$CellContext`i, 
+              1, 
+              Length[{#^2& }]}]], {$CellContext`t, $CellContext`a$ - 
+            0.5, $CellContext`b$ + 0.5}, PlotStyle -> Directive[Black, 
+             Thickness[Medium]]]; $CellContext`switch$ = Graphics[
+           Join[{Black, Dashed}, 
+            Table[
+             Line[{{
+                Part[{0, 1}, $CellContext`i], 
+                Part[{#^2& }, $CellContext`i][
+                 Part[{0, 1}, $CellContext`i]]}, {
+                Part[{0, 1}, $CellContext`i], 
+                Part[{2 # - #^2& }, $CellContext`i][
+                 Part[{0, 1}, $CellContext`i]]}}], {$CellContext`i, 2, 
+              Length[{0, 1}] - 1}], {
+             InfiniteLine[{
+               Part[{0, 1}, 1], 0}, {0, 1}], 
+             InfiniteLine[{
+               Part[{0, 1}, -1], 0}, {0, 1}]}]]; $CellContext`int$ = 1; Do[
+          If[$CellContext`x$$ <= Part[{0, 1}, $CellContext`int$ + 1], 
+           Break[], AddTo[$CellContext`int$, 1]; Null], {$CellContext`i, 2, 
+           Length[{0, 1}] - 1}]; $CellContext`highlight$ = Plot[{
+            Part[{2 # - #^2& }, $CellContext`int$][$CellContext`t], 
+            
+            Part[{#^2& }, $CellContext`int$][$CellContext`t]}, \
+{$CellContext`t, $CellContext`a$ - 0.5, $CellContext`b$ + 0.5}, PlotStyle -> {
+             Directive[Red, Thick], 
+             Directive[Blue, Thick]}]; $CellContext`rec$ = Graphics[{
+            If[
+            Part[{2 # - #^2& }, $CellContext`int$][$CellContext`x$$] >= 
+             Part[{#^2& }, $CellContext`int$][$CellContext`x$$], LightRed, 
+             LightBlue], 
+            Rectangle[{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+              
+              Part[{#^2& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ + 0.5 $CellContext`dx$, 
+              Part[{2 # - #^2& }, $CellContext`int$][$CellContext`x$$]}], 
+            Black, 
+            Line[{{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+               
+               Part[{#^2& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ + 0.5 $CellContext`dx$, 
+               
+               Part[{#^2& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ + 0.5 $CellContext`dx$, 
+               
+               Part[{2 # - #^2& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+               
+               Part[{2 # - #^2& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+               Part[{#^2& }, $CellContext`int$][$CellContext`x$$]}}], Dashed, 
+            Line[{{$CellContext`x$$, 
+               
+               Part[{#^2& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$, 
+               Part[{2 # - #^2& }, $CellContext`int$][$CellContext`x$$]}}]}]; 
+        Show[$CellContext`curves$, $CellContext`highlight$, \
+$CellContext`switch$, $CellContext`rec$, AspectRatio -> Automatic, 
+          PlotRange -> {{$CellContext`a$ - 0.5, $CellContext`b$ + 0.5}, {-0.5,
+             1.5}}]], "Specifications" :> {{{$CellContext`x$$, 
+          Rational[1, 3]}, 0, 1}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {235., 241.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8399295877274475`*^9, 3.839929608284387*^9}},
+ CellLabel->"Out[47]=",ExpressionUUID->"27568f8a-1f3a-4cc4-85db-94c6237f5755"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"areaxlist", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Cos", "[", "#", "]"}], "&"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Sin", "[", "#", "]"}], "&"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "Pi"}], "/", "2"}], ",", 
+     RowBox[{"Pi", "/", "2"}]}], "}"}], ",", 
+   RowBox[{"-", "1.5"}], ",", "1.5", ",", "0.5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8399296610870285`*^9, 3.839929685420087*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"1b438709-8598-4a71-a1df-997cd8ef20b8"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`x$$ = -0.30787608005179967`, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`x$$], Rational[-1, 6] Pi}, Rational[-1, 2] Pi, 
+      Rational[1, 2] Pi}}, Typeset`size$$ = {360., {137., 142.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`x$$ = Rational[-1, 6] Pi}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`a$ = 
+         Part[{Rational[-1, 2] Pi, Rational[1, 2] Pi}, 1], $CellContext`b$ = 
+         Part[{Rational[-1, 2] Pi, Rational[1, 2] Pi}, -1], $CellContext`len$ = 
+         Part[{Rational[-1, 2] Pi, Rational[1, 2] Pi}, 1] - 
+          Part[{Rational[-1, 2] Pi, Rational[1, 2] 
+            Pi}, -1], $CellContext`dx$, $CellContext`curves$, \
+$CellContext`rec$, $CellContext`int$, $CellContext`switch$, \
+$CellContext`highlight$}, $CellContext`dx$ = 
+         0.05 $CellContext`len$; $CellContext`curves$ = Plot[
+           Join[
+            Table[
+             
+             Part[{Cos[#]& }, $CellContext`i][$CellContext`t], \
+{$CellContext`i, 1, 
+              Length[{Cos[#]& }]}], 
+            Table[
+             
+             Part[{Sin[#]& }, $CellContext`i][$CellContext`t], \
+{$CellContext`i, 1, 
+              Length[{Sin[#]& }]}]], {$CellContext`t, $CellContext`a$ - 
+            0.5, $CellContext`b$ + 0.5}, PlotStyle -> Directive[Black, 
+             Thickness[Medium]]]; $CellContext`switch$ = Graphics[
+           Join[{Black, Dashed}, 
+            Table[
+             Line[{{
+                Part[{Rational[-1, 2] Pi, Rational[1, 2] Pi}, $CellContext`i], 
+                Part[{Sin[#]& }, $CellContext`i][
+                 
+                 Part[{Rational[-1, 2] Pi, Rational[1, 2] 
+                   Pi}, $CellContext`i]]}, {
+                Part[{Rational[-1, 2] Pi, Rational[1, 2] Pi}, $CellContext`i], 
+                Part[{Cos[#]& }, $CellContext`i][
+                 
+                 Part[{Rational[-1, 2] Pi, Rational[1, 2] 
+                   Pi}, $CellContext`i]]}}], {$CellContext`i, 2, 
+              Length[{Rational[-1, 2] Pi, Rational[1, 2] Pi}] - 1}], {
+             InfiniteLine[{
+               Part[{Rational[-1, 2] Pi, Rational[1, 2] Pi}, 1], 0}, {0, 1}], 
+             InfiniteLine[{
+               Part[{Rational[-1, 2] Pi, Rational[1, 2] Pi}, -1], 0}, {0, 
+              1}]}]]; $CellContext`int$ = 1; Do[
+          
+          If[$CellContext`x$$ <= 
+           Part[{Rational[-1, 2] Pi, Rational[1, 2] Pi}, $CellContext`int$ + 
+             1], 
+           Break[], AddTo[$CellContext`int$, 1]; Null], {$CellContext`i, 2, 
+           Length[{Rational[-1, 2] Pi, Rational[1, 2] Pi}] - 
+           1}]; $CellContext`highlight$ = Plot[{
+            Part[{Cos[#]& }, $CellContext`int$][$CellContext`t], 
+            
+            Part[{Sin[#]& }, $CellContext`int$][$CellContext`t]}, \
+{$CellContext`t, $CellContext`a$ - 0.5, $CellContext`b$ + 0.5}, PlotStyle -> {
+             Directive[Red, Thick], 
+             Directive[Blue, Thick]}]; $CellContext`rec$ = Graphics[{
+            If[
+            Part[{Cos[#]& }, $CellContext`int$][$CellContext`x$$] >= 
+             Part[{Sin[#]& }, $CellContext`int$][$CellContext`x$$], LightRed, 
+             LightBlue], 
+            Rectangle[{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+              
+              Part[{Sin[#]& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ + 0.5 $CellContext`dx$, 
+              Part[{Cos[#]& }, $CellContext`int$][$CellContext`x$$]}], Black, 
+            Line[{{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+               Part[{
+                Sin[#]& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ + 0.5 $CellContext`dx$, 
+               
+               Part[{Sin[#]& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ + 0.5 $CellContext`dx$, 
+               
+               Part[{Cos[#]& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+               
+               Part[{Cos[#]& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+               Part[{Sin[#]& }, $CellContext`int$][$CellContext`x$$]}}], 
+            Dashed, 
+            Line[{{$CellContext`x$$, 
+               
+               Part[{Sin[#]& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$, 
+               Part[{Cos[#]& }, $CellContext`int$][$CellContext`x$$]}}]}]; 
+        Show[$CellContext`curves$, $CellContext`highlight$, \
+$CellContext`switch$, $CellContext`rec$, AspectRatio -> Automatic, 
+          PlotRange -> {{$CellContext`a$ - 0.5, $CellContext`b$ + 0.5}, {-1.5,
+             1.5}}]], 
+      "Specifications" :> {{{$CellContext`x$$, Rational[-1, 6] Pi}, 
+         Rational[-1, 2] Pi, Rational[1, 2] Pi}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {184., 190.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.839929688007499*^9},
+ CellLabel->"Out[48]=",ExpressionUUID->"0976698b-c0e4-4967-8fc1-6f810c80d165"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -1146,32 +1244,30 @@ Cell[BoxData[
     RowBox[{
      RowBox[{
       RowBox[{
-       FractionBox["1", "2"], 
-       SuperscriptBox["#", "2"]}], "-", "3"}], "&"}], "}"}], ",", 
+       SuperscriptBox["#", "2"], "/", "2"}], "-", "3"}], "&"}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"-", "3"}], ",", 
      RowBox[{"-", "1"}], ",", "5"}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{
-     RowBox[{"-", "2"}], ",", "4"}], "}"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.8398464870101876`*^9, 3.8398466167643657`*^9}, 
-   3.8398467061906166`*^9},
- CellLabel->"In[86]:=",ExpressionUUID->"5e6f3850-b4bf-4a8a-af41-d94d5e614b8d"],
+     RowBox[{"-", "2"}], ",", "4"}], "}"}], ",", "0.5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.839929716534465*^9, 3.83992983595955*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"7fb08501-7f1a-4364-8aa7-81a48bf0f63d"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
    DynamicModuleBox[{$CellContext`wrt$$ = 
-    1, $CellContext`x$$ = -2.45, $CellContext`y$$ = 0.98, Typeset`show$$ = 
-    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{{
+    0, $CellContext`x$$ = -2.41, $CellContext`y$$ = -0.22999999999999998`, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`x$$], 
        Rational[-1, 3]}, -3, 5}, {{
        Hold[$CellContext`y$$], 2}, -2, 4}, {{
        Hold[$CellContext`wrt$$], 0, "integral"}, {0 -> "dx", 1 -> "dy"}}}, 
-    Typeset`size$$ = {360., {145., 149.}}, Typeset`update$$ = 0, 
+    Typeset`size$$ = {360., {147., 152.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
@@ -1191,8 +1287,9 @@ Cell[BoxData[
           Part[{-2, 4}, 
            1], $CellContext`dx$, $CellContext`dy$, $CellContext`curves$, \
 $CellContext`recx$, $CellContext`recy$, $CellContext`int$, \
-$CellContext`inti$, $CellContext`switch$, $CellContext`switchi$}, \
-$CellContext`dx$ = 0.05 $CellContext`len$; $CellContext`dy$ = 
+$CellContext`inti$, $CellContext`switch$, $CellContext`switchi$, \
+$CellContext`highlight$, $CellContext`highlighti$}, $CellContext`dx$ = 
+         0.05 $CellContext`len$; $CellContext`dy$ = 
          0.05 $CellContext`leni$; $CellContext`curves$ = Plot[
            Join[
             Table[
@@ -1208,8 +1305,8 @@ $CellContext`dx$ = 0.05 $CellContext`len$; $CellContext`dy$ =
               
               Length[{-Sqrt[2 # + 6]& , # - 
                 1& }]}]], {$CellContext`t, $CellContext`a$ - 
-            0.25, $CellContext`b$ + 0.25}, PlotStyle -> 
-           Directive[Black, Thick]]; $CellContext`switch$ = Graphics[
+            0.5, $CellContext`b$ + 0.5}, PlotStyle -> Directive[Black, 
+             Thickness[Medium]]]; $CellContext`switch$ = Graphics[
            Join[{Black, Dashed}, 
             Table[
              Line[{{
@@ -1219,17 +1316,26 @@ $CellContext`dx$ = 0.05 $CellContext`len$; $CellContext`dy$ =
                 Part[{-3, -1, 5}, $CellContext`i], 
                 Part[{Sqrt[2 # + 6]& , Sqrt[2 # + 6]& }, $CellContext`i][
                  Part[{-3, -1, 5}, $CellContext`i]]}}], {$CellContext`i, 2, 
-              Length[{-3, -1, 5}] - 1}]]]; $CellContext`switchi$ = Graphics[
+              Length[{-3, -1, 5}] - 1}], {
+             InfiniteLine[{
+               Part[{-3, -1, 5}, 1], 0}, {0, 1}], 
+             InfiniteLine[{
+               Part[{-3, -1, 5}, -1], 0}, {0, 1}]}]]; $CellContext`switchi$ = 
+         Graphics[
            Join[{Black, Dashed}, 
             Table[
              Line[{{
-                Part[{(1/2) #^2 - 3& }, $CellContext`i][
+                Part[{#^2/2 - 3& }, $CellContext`i][
                  Part[{-2, 4}, $CellContext`i]], 
                 Part[{-2, 4}, $CellContext`i]}, {
                 Part[{# + 1& }, $CellContext`i][
                  Part[{-2, 4}, $CellContext`i]], 
                 Part[{-2, 4}, $CellContext`i]}}], {$CellContext`i, 2, 
-              Length[{-2, 4}] - 1}]]]; $CellContext`int$ = 1; 
+              Length[{-2, 4}] - 1}], {
+             InfiniteLine[{0, 
+               Part[{-2, 4}, 1]}, {1, 0}], 
+             InfiniteLine[{0, 
+               Part[{-2, 4}, -1]}, {1, 0}]}]]; $CellContext`int$ = 1; 
         Do[If[$CellContext`int$ + 1 > Length[{-3, -1, 5}], Break[]; Null]; 
           If[$CellContext`x$$ <= Part[{-3, -1, 5}, $CellContext`int$ + 1], 
             Break[], AddTo[$CellContext`int$, 1]; Null], {$CellContext`i, 2, 
@@ -1237,8 +1343,34 @@ $CellContext`dx$ = 0.05 $CellContext`len$; $CellContext`dy$ =
         Do[If[$CellContext`inti$ + 1 > Length[{-2, 4}], Break[]; Null]; 
           If[$CellContext`y$$ <= Part[{-2, 4}, $CellContext`inti$ + 1], 
             Break[], AddTo[$CellContext`inti$, 1]; Null], {$CellContext`i, 2, 
-           Length[{-2, 4}] - 1}]; $CellContext`recx$ = Graphics[{LightRed, 
+           Length[{-2, 4}] - 1}]; $CellContext`highlight$ = Plot[{
+            
+            Part[{Sqrt[2 # + 6]& , Sqrt[
+              2 # + 6]& }, $CellContext`int$][$CellContext`t], 
+            
+            Part[{-Sqrt[2 # + 6]& , # - 
+              1& }, $CellContext`int$][$CellContext`t]}, {$CellContext`t, \
+$CellContext`a$ - 0.5, $CellContext`b$ + 0.5}, PlotStyle -> {
+             Directive[Red, Thick], 
+             Directive[Blue, Thick]}]; $CellContext`highlighti$ = 
+         ParametricPlot[{{
+             
+             Part[{# + 
+               1& }, $CellContext`inti$][$CellContext`t], $CellContext`t}, {
+             
+             Part[{#^2/2 - 
+               3& }, $CellContext`inti$][$CellContext`t], $CellContext`t}}, \
+{$CellContext`t, $CellContext`ai$ - 0.5, $CellContext`bi$ + 0.5}, PlotStyle -> {
+             Directive[Red, Thick], 
+             Directive[Blue, Thick]}]; $CellContext`recx$ = Graphics[{
+            If[
+            Part[{Sqrt[2 # + 6]& , Sqrt[
+                2 # + 6]& }, $CellContext`int$][$CellContext`x$$] >= 
+             Part[{-Sqrt[2 # + 6]& , # - 
+                1& }, $CellContext`int$][$CellContext`x$$], LightRed, 
+             LightBlue], 
             Rectangle[{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+              
               Part[{-Sqrt[2 # + 6]& , # - 
                 1& }, $CellContext`int$][$CellContext`x$$]}, \
 {$CellContext`x$$ + 0.5 $CellContext`dx$, 
@@ -1254,8 +1386,8 @@ $CellContext`dx$ = 0.05 $CellContext`len$; $CellContext`dy$ =
                Part[{-Sqrt[2 # + 6]& , # - 
                  1& }, $CellContext`int$][$CellContext`x$$]}, \
 {$CellContext`x$$ + 0.5 $CellContext`dx$, 
-               
-               Part[{Sqrt[2 # + 6]& , Sqrt[
+               Part[{
+                Sqrt[2 # + 6]& , Sqrt[
                  2 # + 6]& }, $CellContext`int$][$CellContext`x$$]}, \
 {$CellContext`x$$ - 0.5 $CellContext`dx$, 
                
@@ -1273,10 +1405,14 @@ $CellContext`dx$ = 0.05 $CellContext`len$; $CellContext`dy$ =
                
                Part[{Sqrt[2 # + 6]& , Sqrt[
                  2 # + 6]& }, $CellContext`int$][$CellContext`x$$]}}]}]; \
-$CellContext`recy$ = Graphics[{LightRed, 
+$CellContext`recy$ = Graphics[{
+            If[
+            Part[{# + 1& }, $CellContext`inti$][$CellContext`y$$] >= 
+             Part[{#^2/2 - 3& }, $CellContext`inti$][$CellContext`y$$], 
+             LightRed, LightBlue], 
             Rectangle[{
               
-              Part[{(1/2) #^2 - 
+              Part[{#^2/2 - 
                 3& }, $CellContext`inti$][$CellContext`y$$], $CellContext`y$$ - 
               0.5 $CellContext`dy$}, {
               
@@ -1285,27 +1421,28 @@ $CellContext`recy$ = Graphics[{LightRed,
               0.5 $CellContext`dy$}], Black, 
             Line[{{
                
-               Part[{(1/2) #^2 - 
+               Part[{#^2/2 - 
                  3& }, $CellContext`inti$][$CellContext`y$$], \
 $CellContext`y$$ - 0.5 $CellContext`dy$}, {
                
-               Part[{(1/2) #^2 - 
+               Part[{#^2/2 - 
                  3& }, $CellContext`inti$][$CellContext`y$$], \
 $CellContext`y$$ + 0.5 $CellContext`dy$}, {
                
                Part[{# + 
                  1& }, $CellContext`inti$][$CellContext`y$$], \
 $CellContext`y$$ + 0.5 $CellContext`dy$}, {
+               
                Part[{# + 
                  1& }, $CellContext`inti$][$CellContext`y$$], \
 $CellContext`y$$ - 0.5 $CellContext`dy$}, {
                
-               Part[{(1/2) #^2 - 
+               Part[{#^2/2 - 
                  3& }, $CellContext`inti$][$CellContext`y$$], \
 $CellContext`y$$ - 0.5 $CellContext`dy$}}], Dashed, 
             Line[{{
                
-               Part[{(1/2) #^2 - 
+               Part[{#^2/2 - 
                  3& }, $CellContext`inti$][$CellContext`y$$], \
 $CellContext`y$$}, {
                
@@ -1314,17 +1451,277 @@ $CellContext`y$$}, {
 $CellContext`y$$}}]}]; Show[$CellContext`curves$, 
           
           If[$CellContext`wrt$$ == 
+           0, $CellContext`highlight$, $CellContext`highlighti$], 
+          
+          If[$CellContext`wrt$$ == 
            0, $CellContext`switch$, $CellContext`switchi$], 
           If[$CellContext`wrt$$ == 0, $CellContext`recx$, $CellContext`recy$],
            AspectRatio -> Automatic, 
-          PlotRange -> {{$CellContext`a$ - 0.25, $CellContext`b$ + 
-             0.25}, {$CellContext`ai$ - 0.25, $CellContext`bi$ + 0.25}}]], 
+          PlotRange -> {{$CellContext`a$ - 0.5, $CellContext`b$ + 
+             0.5}, {$CellContext`ai$ - 0.5, $CellContext`bi$ + 0.5}}]], 
       "Specifications" :> {{{$CellContext`x$$, 
           Rational[-1, 3]}, -3, 5}, {{$CellContext`y$$, 2}, -2, 
          4}, {{$CellContext`wrt$$, 0, "integral"}, {0 -> "dx", 1 -> "dy"}, 
          ControlType -> RadioButton}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{411., {214., 220.}},
+     ImageSizeCache->{411., {217., 223.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8399298321402893`*^9, 3.839929836361821*^9}},
+ CellLabel->"Out[50]=",ExpressionUUID->"47d609b1-8c5e-41b3-ac81-2686eaeb69ed"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"areaxylist", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"#", "&"}], ",", 
+     RowBox[{
+      RowBox[{"1", "/", "#"}], "&"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"4", "#"}], "&"}], ",", 
+     RowBox[{
+      RowBox[{"1", "/", "#"}], "&"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "/", "4"}], "&"}], ",", 
+     RowBox[{
+      RowBox[{"#", "/", "4"}], "&"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"#", "&"}], ",", 
+     RowBox[{"#", "&"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.001", ",", "1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.001", ",", 
+     RowBox[{"1", "/", "2"}], ",", "1"}], "}"}], ",", "0"}], "]"}]], "Input",
+ CellChangeTimes->{{3.839929878628788*^9, 3.839929900951603*^9}, {
+  3.8399299356994495`*^9, 3.839929981471839*^9}, {3.83993001230672*^9, 
+  3.839930060072532*^9}},
+ CellLabel->"In[54]:=",ExpressionUUID->"86d2c5e2-cb5a-40e0-9796-2e11bf76ed6e"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`wrt$$ = 0, $CellContext`x$$ = 
+    0.444, $CellContext`y$$ = 0.27, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`x$$], 0.6673333333333333}, 0.001, 2}, {{
+       Hold[$CellContext`y$$], 0.6669999999999999}, 0.001, 1}, {{
+       Hold[$CellContext`wrt$$], 0, "integral"}, {0 -> "dx", 1 -> "dy"}}}, 
+    Typeset`size$$ = {360., {94., 100.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`wrt$$ = 0, $CellContext`x$$ = 
+        0.6673333333333333, $CellContext`y$$ = 0.6669999999999999}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`a$ = Part[{0.001, 1, 2}, 1], $CellContext`b$ = 
+         Part[{0.001, 1, 2}, -1], $CellContext`ai$ = Part[{0.001, 
+            Rational[1, 2], 1}, 1], $CellContext`bi$ = Part[{0.001, 
+            Rational[1, 2], 1}, -1], $CellContext`len$ = 
+         Part[{0.001, 1, 2}, 1] - Part[{0.001, 1, 2}, -1], $CellContext`leni$ = 
+         Part[{0.001, 
+             Rational[1, 2], 1}, -1] - Part[{0.001, 
+            Rational[1, 2], 1}, 
+           1], $CellContext`dx$, $CellContext`dy$, $CellContext`curves$, \
+$CellContext`recx$, $CellContext`recy$, $CellContext`int$, \
+$CellContext`inti$, $CellContext`switch$, $CellContext`switchi$, \
+$CellContext`highlight$, $CellContext`highlighti$}, $CellContext`dx$ = 
+         0.05 $CellContext`len$; $CellContext`dy$ = 
+         0.05 $CellContext`leni$; $CellContext`curves$ = Plot[
+           Join[
+            Table[
+             
+             Part[{#& , 
+               1/#& }, $CellContext`i][$CellContext`t], {$CellContext`i, 1, 
+              Length[{#& , 1/#& }]}], 
+            Table[
+             
+             Part[{#/4& , #/
+               4& }, $CellContext`i][$CellContext`t], {$CellContext`i, 1, 
+              Length[{#/4& , #/4& }]}]], {$CellContext`t, $CellContext`a$ - 
+            0, $CellContext`b$ + 0}, PlotStyle -> Directive[Black, 
+             Thickness[Medium]]]; $CellContext`switch$ = Graphics[
+           Join[{Black, Dashed}, 
+            Table[
+             Line[{{
+                Part[{0.001, 1, 2}, $CellContext`i], 
+                Part[{#/4& , #/4& }, $CellContext`i][
+                 Part[{0.001, 1, 2}, $CellContext`i]]}, {
+                Part[{0.001, 1, 2}, $CellContext`i], 
+                Part[{#& , 1/#& }, $CellContext`i][
+                 Part[{0.001, 1, 2}, $CellContext`i]]}}], {$CellContext`i, 2, 
+              Length[{0.001, 1, 2}] - 1}], {
+             InfiniteLine[{
+               Part[{0.001, 1, 2}, 1], 0}, {0, 1}], 
+             InfiniteLine[{
+               Part[{0.001, 1, 2}, -1], 0}, {0, 1}]}]]; $CellContext`switchi$ = 
+         Graphics[
+           Join[{Black, Dashed}, 
+            Table[
+             Line[{{
+                Part[{#& , #& }, $CellContext`i][
+                 Part[{0.001, 
+                   Rational[1, 2], 1}, $CellContext`i]], 
+                Part[{0.001, 
+                  Rational[1, 2], 1}, $CellContext`i]}, {
+                Part[{4 #& , 1/#& }, $CellContext`i][
+                 Part[{0.001, 
+                   Rational[1, 2], 1}, $CellContext`i]], 
+                Part[{0.001, 
+                  Rational[1, 2], 1}, $CellContext`i]}}], {$CellContext`i, 2, 
+              Length[{0.001, 
+                 Rational[1, 2], 1}] - 1}], {
+             InfiniteLine[{0, 
+               Part[{0.001, 
+                 Rational[1, 2], 1}, 1]}, {1, 0}], 
+             InfiniteLine[{0, 
+               Part[{0.001, 
+                 Rational[1, 2], 1}, -1]}, {1, 0}]}]]; $CellContext`int$ = 1; 
+        Do[If[$CellContext`int$ + 1 > Length[{0.001, 1, 2}], Break[]; Null]; 
+          If[$CellContext`x$$ <= Part[{0.001, 1, 2}, $CellContext`int$ + 1], 
+            Break[], AddTo[$CellContext`int$, 1]; Null], {$CellContext`i, 2, 
+           Length[{0.001, 1, 2}] - 1}]; $CellContext`inti$ = 1; 
+        Do[If[$CellContext`inti$ + 1 > Length[{0.001, 
+               Rational[1, 2], 1}], Break[]; Null]; 
+          If[$CellContext`y$$ <= Part[{0.001, 
+               Rational[1, 2], 1}, $CellContext`inti$ + 1], 
+            Break[], AddTo[$CellContext`inti$, 1]; Null], {$CellContext`i, 2, 
+           Length[{0.001, 
+              Rational[1, 2], 1}] - 1}]; $CellContext`highlight$ = Plot[{
+            Part[{#& , 1/#& }, $CellContext`int$][$CellContext`t], 
+            
+            Part[{#/4& , #/
+              4& }, $CellContext`int$][$CellContext`t]}, {$CellContext`t, \
+$CellContext`a$ - 0, $CellContext`b$ + 0}, PlotStyle -> {
+             Directive[Red, Thick], 
+             Directive[Blue, Thick]}]; $CellContext`highlighti$ = 
+         ParametricPlot[{{
+             
+             Part[{4 #& , 
+               1/#& }, $CellContext`inti$][$CellContext`t], $CellContext`t}, {
+             
+             Part[{#& , #& }, $CellContext`inti$][$CellContext`t], \
+$CellContext`t}}, {$CellContext`t, $CellContext`ai$ - 0, $CellContext`bi$ + 
+            0}, PlotStyle -> {
+             Directive[Red, Thick], 
+             Directive[Blue, Thick]}]; $CellContext`recx$ = Graphics[{
+            If[
+            Part[{#& , 1/#& }, $CellContext`int$][$CellContext`x$$] >= 
+             Part[{#/4& , #/4& }, $CellContext`int$][$CellContext`x$$], 
+             LightRed, LightBlue], 
+            Rectangle[{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+              
+              Part[{#/4& , #/
+                4& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ + 0.5 $CellContext`dx$, 
+              Part[{#& , 1/#& }, $CellContext`int$][$CellContext`x$$]}], 
+            Black, 
+            Line[{{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+               
+               Part[{#/4& , #/
+                 4& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ + 0.5 $CellContext`dx$, 
+               
+               Part[{#/4& , #/
+                 4& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ + 0.5 $CellContext`dx$, 
+               
+               Part[{#& , 
+                 1/#& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+               
+               Part[{#& , 
+                 1/#& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$ - 0.5 $CellContext`dx$, 
+               Part[{#/4& , #/4& }, $CellContext`int$][$CellContext`x$$]}}], 
+            Dashed, 
+            Line[{{$CellContext`x$$, 
+               
+               Part[{#/4& , #/
+                 4& }, $CellContext`int$][$CellContext`x$$]}, \
+{$CellContext`x$$, 
+               
+               Part[{#& , 
+                 1/#& }, $CellContext`int$][$CellContext`x$$]}}]}]; \
+$CellContext`recy$ = Graphics[{
+            If[
+            Part[{4 #& , 1/#& }, $CellContext`inti$][$CellContext`y$$] >= 
+             Part[{#& , #& }, $CellContext`inti$][$CellContext`y$$], LightRed,
+              LightBlue], 
+            Rectangle[{
+              
+              Part[{#& , #& }, $CellContext`inti$][$CellContext`y$$], \
+$CellContext`y$$ - 0.5 $CellContext`dy$}, {
+              
+              Part[{4 #& , 
+                1/#& }, $CellContext`inti$][$CellContext`y$$], \
+$CellContext`y$$ + 0.5 $CellContext`dy$}], Black, 
+            Line[{{
+               
+               Part[{#& , #& }, $CellContext`inti$][$CellContext`y$$], \
+$CellContext`y$$ - 0.5 $CellContext`dy$}, {
+               
+               Part[{#& , #& }, $CellContext`inti$][$CellContext`y$$], \
+$CellContext`y$$ + 0.5 $CellContext`dy$}, {
+               
+               Part[{4 #& , 
+                 1/#& }, $CellContext`inti$][$CellContext`y$$], \
+$CellContext`y$$ + 0.5 $CellContext`dy$}, {
+               
+               Part[{4 #& , 
+                 1/#& }, $CellContext`inti$][$CellContext`y$$], \
+$CellContext`y$$ - 0.5 $CellContext`dy$}, {
+               
+               Part[{#& , #& }, $CellContext`inti$][$CellContext`y$$], \
+$CellContext`y$$ - 0.5 $CellContext`dy$}}], Dashed, 
+            Line[{{
+               
+               Part[{#& , #& }, $CellContext`inti$][$CellContext`y$$], \
+$CellContext`y$$}, {
+               
+               Part[{4 #& , 
+                 1/#& }, $CellContext`inti$][$CellContext`y$$], \
+$CellContext`y$$}}]}]; Show[$CellContext`curves$, 
+          
+          If[$CellContext`wrt$$ == 
+           0, $CellContext`highlight$, $CellContext`highlighti$], 
+          
+          If[$CellContext`wrt$$ == 
+           0, $CellContext`switch$, $CellContext`switchi$], 
+          If[$CellContext`wrt$$ == 0, $CellContext`recx$, $CellContext`recy$],
+           AspectRatio -> Automatic, 
+          PlotRange -> {{$CellContext`a$ - 0, $CellContext`b$ + 
+             0}, {$CellContext`ai$ - 0, $CellContext`bi$ + 0}}]], 
+      "Specifications" :> {{{$CellContext`x$$, 0.6673333333333333}, 0.001, 
+         2}, {{$CellContext`y$$, 0.6669999999999999}, 0.001, 
+         1}, {{$CellContext`wrt$$, 0, "integral"}, {0 -> "dx", 1 -> "dy"}, 
+         ControlType -> RadioButton}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {164., 170.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -1336,16 +1733,12 @@ $CellContext`y$$}}]}]; Show[$CellContext`curves$,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{
-  3.8398466182227387`*^9, {3.839846681825184*^9, 3.8398467168858447`*^9}, 
-   3.839846952064213*^9, {3.83984701063461*^9, 3.839847024479569*^9}, {
-   3.8398470990578117`*^9, 3.8398471147120285`*^9}, 3.8398471924526215`*^9, 
-   3.8398472508197746`*^9, 3.8398473138199005`*^9, 3.8398474389535456`*^9, 
-   3.8398474885375195`*^9, 3.8398475279503736`*^9},
- CellLabel->"Out[86]=",ExpressionUUID->"9f4d2280-a4e7-4b33-9199-0cc5275ad5be"]
+  3.8399299819882483`*^9, {3.839930018204259*^9, 3.839930060553752*^9}},
+ CellLabel->"Out[54]=",ExpressionUUID->"47b684f1-f0c5-46ad-8b37-86c72eb9250f"]
 }, Open  ]]
 },
 WindowSize->{760, 833},
-WindowMargins->{{Automatic, 385}, {Automatic, 38}},
+WindowMargins->{{Automatic, 374}, {Automatic, 42}},
 FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"ce3ff439-e2ed-4bb2-9378-c4db0c31f72a"
@@ -1361,20 +1754,23 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 5639, 142, 276, "Input",ExpressionUUID->"b948f1ab-270e-4a68-a940-3f92213591ab"],
+Cell[558, 20, 12596, 315, 675, "Input",ExpressionUUID->"cc550474-d7ae-4c9c-8613-95c41d2d69a2"],
+Cell[13157, 337, 23975, 603, 1340, "Input",ExpressionUUID->"543b088e-3dd3-4477-b8aa-b768810430cf"],
 Cell[CellGroupData[{
-Cell[6222, 166, 506, 13, 32, "Input",ExpressionUUID->"f74a2702-53db-4386-90e1-0fa124bdbe6d"],
-Cell[6731, 181, 3224, 62, 421, "Output",ExpressionUUID->"b568dc91-7eaf-4b72-a56b-9148a6db58cd"]
+Cell[37157, 944, 537, 15, 32, "Input",ExpressionUUID->"d513c85e-91ac-47c0-b0ae-3bd547802209"],
+Cell[37697, 961, 5266, 108, 495, "Output",ExpressionUUID->"27568f8a-1f3a-4cc4-85db-94c6237f5755"]
 }, Open  ]],
-Cell[9970, 246, 10186, 257, 637, "Input",ExpressionUUID->"cc550474-d7ae-4c9c-8613-95c41d2d69a2"],
 Cell[CellGroupData[{
-Cell[20181, 507, 658, 19, 28, "Input",ExpressionUUID->"f5407b48-d5b9-4fef-b358-741e1e64c092"],
-Cell[20842, 528, 5090, 105, 345, "Output",ExpressionUUID->"3d070331-47a3-4d34-b8a6-6154e5d12a5b"]
+Cell[43000, 1074, 576, 16, 28, "Input",ExpressionUUID->"1b438709-8598-4a71-a1df-997cd8ef20b8"],
+Cell[43579, 1092, 5917, 120, 393, "Output",ExpressionUUID->"0976698b-c0e4-4967-8fc1-6f810c80d165"]
 }, Open  ]],
-Cell[25947, 636, 19030, 479, 1226, "Input",ExpressionUUID->"543b088e-3dd3-4477-b8aa-b768810430cf"],
 Cell[CellGroupData[{
-Cell[45002, 1119, 1129, 40, 75, "Input",ExpressionUUID->"5e6f3850-b4bf-4a8a-af41-d94d5e614b8d"],
-Cell[46134, 1161, 8631, 182, 453, "Output",ExpressionUUID->"9f4d2280-a4e7-4b33-9199-0cc5275ad5be"]
+Cell[49533, 1217, 1087, 38, 57, "Input",ExpressionUUID->"7fb08501-7f1a-4364-8aa7-81a48bf0f63d"],
+Cell[50623, 1257, 10166, 221, 459, "Output",ExpressionUUID->"47d609b1-8c5e-41b3-ac81-2686eaeb69ed"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60826, 1483, 1026, 32, 48, "Input",ExpressionUUID->"86d2c5e2-cb5a-40e0-9796-2e11bf76ed6e"],
+Cell[61855, 1517, 10133, 219, 353, "Output",ExpressionUUID->"47b684f1-f0c5-46ad-8b37-86c72eb9250f"]
 }, Open  ]]
 }
 ]
