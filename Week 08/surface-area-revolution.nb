@@ -1,0 +1,175 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5830,        165]
+NotebookOptionsPosition[      5473,        151]
+NotebookOutlinePosition[      5876,        167]
+CellTagsIndexPosition[      5833,        164]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"f", "=", 
+        RowBox[{
+         RowBox[{"0.5", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"0.9", "#"}], "+", 
+            RowBox[{"2", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"1.4", "#"}], "]"}]}], "+", 
+            RowBox[{"Log", "[", 
+             RowBox[{"#", "+", "5"}], "]"}]}], ")"}]}], "&"}]}], ",", 
+       RowBox[{"a", "=", "0"}], ",", 
+       RowBox[{"b", "=", "4"}], ",", 
+       RowBox[{"dx", "=", "0.5"}], ",", 
+       RowBox[{"dr", "=", "0.05"}], ",", "surf", ",", "strip", ",", ",", 
+       "axes"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"surf", "=", 
+       RowBox[{"RevolutionPlot3D", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"f", "[", "x", "]"}], ",", "x"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"LightBlue", ",", 
+            RowBox[{"Opacity", "[", "0.5", "]"}]}], "]"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"strip", "=", 
+       RowBox[{"RevolutionPlot3D", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"f", "'"}], "[", "x0", "]"}], 
+             RowBox[{"(", 
+              RowBox[{"x", "-", "x0"}], ")"}]}], "+", 
+            RowBox[{"f", "[", "x0", "]"}], "+", "dr"}], ",", "x"}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"x0", "-", 
+            RowBox[{"dx", "/", "2"}]}], ",", 
+           RowBox[{"x0", "+", 
+            RowBox[{"dx", "/", "2"}]}]}], "}"}], ",", 
+         RowBox[{"Mesh", "\[Rule]", "5"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"axes", "=", 
+       RowBox[{"Graphics3D", "[", 
+        RowBox[{"{", 
+         RowBox[{"Black", ",", 
+          RowBox[{"Thickness", "[", "Medium", "]"}], ",", 
+          RowBox[{"InfiniteLine", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "]"}], ",", 
+          RowBox[{"InfiniteLine", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "]"}], ",", 
+          RowBox[{"InfiniteLine", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}]}], "}"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Show", "[", 
+       RowBox[{"axes", ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Graphics3D", "[", 
+           RowBox[{
+            RowBox[{"Rotate", "[", 
+             RowBox[{"#", ",", 
+              RowBox[{"Pi", "/", "2"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "]"}], ",", 
+            RowBox[{"PlotRange", "\[Rule]", "All"}], ",", "##2"}], "]"}], 
+          "&"}], "@@", "surf"}], ",", 
+        RowBox[{"If", "[", 
+         RowBox[{"show", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Graphics3D", "[", 
+             RowBox[{
+              RowBox[{"Rotate", "[", 
+               RowBox[{"#", ",", 
+                RowBox[{"Pi", "/", "2"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "]"}], ",", 
+              RowBox[{"PlotRange", "\[Rule]", "All"}], ",", "##2"}], "]"}], 
+            "&"}], "@@", "strip"}], ",", 
+          RowBox[{"Graphics3D", "[", "]"}]}], "]"}], ",", 
+        RowBox[{"Axes", "\[Rule]", "True"}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x0", ",", "1", ",", "\"\<x\>\""}], "}"}], ",", "0.5", ",", 
+     "3.5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"show", ",", "False", ",", "\"\<band\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"False", ",", "True"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8428993432386885`*^9, 3.8428994577779827`*^9}, {
+  3.842900966851661*^9, 3.8429010974772186`*^9}, {3.8429011427587376`*^9, 
+  3.842901263849564*^9}, {3.8429891467630825`*^9, 3.8429891754622617`*^9}, {
+  3.842989221832762*^9, 3.84298932375815*^9}, {3.8429894726776915`*^9, 
+  3.842989657827016*^9}, {3.8429896906077795`*^9, 3.8429898234917*^9}, {
+  3.8429898667526765`*^9, 
+  3.842989999551039*^9}},ExpressionUUID->"77a8c137-6208-479d-bd5c-\
+2a10e4c342d6"]
+},
+WindowSize->{760, 833},
+WindowMargins->{{543, Automatic}, {45, Automatic}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ad6647aa-bc75-4d88-b87c-8f2778d2458f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4911, 129, 257, "Input",ExpressionUUID->"77a8c137-6208-479d-bd5c-2a10e4c342d6"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
