@@ -1,0 +1,545 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21723,        537]
+NotebookOptionsPosition[     21042,        518]
+NotebookOutlinePosition[     21445,        534]
+CellTagsIndexPosition[     21402,        531]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "Shows", " ", "a", " ", "parametric", " ", "curve", " ", "being", " ", 
+     "drawn", " ", "based", " ", "on", " ", "its", " ", "two", " ", 
+     "defining", " ", 
+     RowBox[{"curves", ".", " ", "Parameters"}], " ", 
+     RowBox[{"include", ":", "\[IndentingNewLine]", 
+      RowBox[{"f", " ", "-", " ", 
+       RowBox[{"horizontal", " ", "function", " ", "x"}]}]}]}], " ", "=", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"f", 
+       RowBox[{"(", "t", ")"}], "\[IndentingNewLine]", "g"}], " ", "-", " ", 
+      RowBox[{"vertical", " ", "function", " ", "y"}]}], " ", "=", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"g", 
+        RowBox[{"(", "t", ")"}], "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"ti", ",", "tf"}], "}"}]}], " ", "-", " ", 
+       RowBox[{
+       "bounds", " ", "for", " ", "the", " ", "parameter", " ", "ti"}]}], " ",
+       "\[LessEqual]", " ", "t", " ", "\[LessEqual]", " ", 
+      RowBox[{
+       RowBox[{"tf", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"fxmin", ",", "fxmax"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"fymin", ",", "fymax"}], "}"}]}], "}"}]}], " ", "-", " ", 
+       RowBox[{"bounding", " ", "box", " ", "for", " ", "f", 
+        RowBox[{"(", "t", ")"}], " ", "display", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"gxmin", ",", "gxmax"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"gymin", ",", "gymax"}], "}"}]}], "}"}]}], " ", "-", " ", 
+       RowBox[{"bounding", " ", "box", " ", "for", " ", "g", 
+        RowBox[{"(", "t", ")"}], " ", "display"}]}]}]}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"parametric", "[", 
+    RowBox[{"f_", ",", "g_", ",", "tbounds_", ",", "fbox_", ",", "gbox_"}], 
+    "]"}], ":=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"ti", "=", 
+          RowBox[{"tbounds", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+         RowBox[{"tf", "=", 
+          RowBox[{"tbounds", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+         RowBox[{"fxmin", "=", 
+          RowBox[{"fbox", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ",", 
+         RowBox[{"fxmax", "=", 
+          RowBox[{"fbox", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ",", 
+         RowBox[{"fymin", "=", 
+          RowBox[{"fbox", "[", 
+           RowBox[{"[", 
+            RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ",", 
+         RowBox[{"fymax", "=", 
+          RowBox[{"fbox", "[", 
+           RowBox[{"[", 
+            RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ",", 
+         RowBox[{"gxmin", "=", 
+          RowBox[{"gbox", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ",", 
+         RowBox[{"gxmax", "=", 
+          RowBox[{"gbox", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ",", 
+         RowBox[{"gymin", "=", 
+          RowBox[{"gbox", "[", 
+           RowBox[{"[", 
+            RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ",", 
+         RowBox[{"gymax", "=", 
+          RowBox[{"gbox", "[", 
+           RowBox[{"[", 
+            RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ",", 
+         RowBox[{"go", "=", 
+          RowBox[{"If", "[", 
+           RowBox[{"guides", ",", "1", ",", "0"}], "]"}]}], ",", 
+         RowBox[{"co", "=", 
+          RowBox[{"If", "[", 
+           RowBox[{"curve", ",", "1", ",", "0"}], "]"}]}], ",", "fplot", ",", 
+         "gplot", ",", "pplot"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"fplot", "=", 
+         RowBox[{"Show", "[", 
+          RowBox[{
+           RowBox[{"ParametricPlot", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"f", "[", "x", "]"}], ",", 
+               RowBox[{"-", "x"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "ti", ",", "t"}], "}"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Thick", ",", "Blue"}], "}"}]}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"fbox", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], ",", 
+                RowBox[{"-", 
+                 RowBox[{"fbox", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}]}]}], "]"}], ",", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"PointSize", "[", "Large", "]"}], ",", "Blue", ",", 
+              RowBox[{"Point", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"f", "[", "t", "]"}], ",", 
+                 RowBox[{"-", "t"}]}], "}"}], "]"}], ",", "Thick", ",", 
+              RowBox[{"Opacity", "[", "go", "]"}], ",", 
+              RowBox[{"InfiniteLine", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"f", "[", "t", "]"}], ",", 
+                  RowBox[{"-", "t"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1"}], "}"}]}], "]"}]}], "}"}], "]"}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"fbox", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], ",", 
+              RowBox[{"-", 
+               RowBox[{"fbox", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}]}], ",", 
+           RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+           RowBox[{"Ticks", "\[Rule]", "False"}], ",", 
+           RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+           RowBox[{"AxesOrigin", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"gplot", "=", 
+         RowBox[{"Show", "[", 
+          RowBox[{
+           RowBox[{"ParametricPlot", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"x", ",", 
+               RowBox[{"g", "[", "x", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "ti", ",", "t"}], "}"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Thick", ",", "Red"}], "}"}]}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", "gbox"}]}], "]"}], ",", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"PointSize", "[", "Large", "]"}], ",", "Red", ",", 
+              RowBox[{"Point", "[", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", 
+                 RowBox[{"g", "[", "t", "]"}]}], "}"}], "]"}], ",", "Thick", 
+              ",", 
+              RowBox[{"Opacity", "[", "go", "]"}], ",", 
+              RowBox[{"InfiniteLine", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"t", ",", 
+                  RowBox[{"g", "[", "t", "]"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "0"}], "}"}]}], "]"}]}], "}"}], "]"}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", "gbox"}], ",", 
+           RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+           RowBox[{"Ticks", "\[Rule]", "False"}], ",", 
+           RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+           RowBox[{"AxesOrigin", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"pplot", "=", 
+         RowBox[{"Show", "[", 
+          RowBox[{
+           RowBox[{"ParametricPlot", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"f", "[", "x", "]"}], ",", 
+               RowBox[{"g", "[", "x", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "ti", ",", "t"}], "}"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Thick", ",", "Black", ",", 
+                RowBox[{"Opacity", "[", "co", "]"}]}], "}"}]}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"fbox", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], ",", 
+                RowBox[{"gbox", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}]}], "]"}], ",", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{"{", 
+             RowBox[{"Thick", ",", 
+              RowBox[{"Opacity", "[", "go", "]"}], ",", "Blue", ",", 
+              RowBox[{"InfiniteLine", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"f", "[", "t", "]"}], ",", 
+                  RowBox[{"g", "[", "t", "]"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1"}], "}"}]}], "]"}], ",", "Red", ",", 
+              RowBox[{"InfiniteLine", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"f", "[", "t", "]"}], ",", 
+                  RowBox[{"g", "[", "t", "]"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "0"}], "}"}]}], "]"}], ",", 
+              RowBox[{"Opacity", "[", 
+               RowBox[{"Max", "[", 
+                RowBox[{"go", ",", "co"}], "]"}], "]"}], ",", 
+              RowBox[{"PointSize", "[", "Large", "]"}], ",", "Black", ",", 
+              RowBox[{"Point", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"f", "[", "t", "]"}], ",", 
+                 RowBox[{"g", "[", "t", "]"}]}], "}"}], "]"}]}], "}"}], "]"}],
+            ",", 
+           RowBox[{"PlotRange", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"fbox", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], ",", 
+              RowBox[{"gbox", "[", 
+               RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}], ",", 
+           RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+           RowBox[{"Ticks", "\[Rule]", "False"}], ",", 
+           RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+           RowBox[{"AxesOrigin", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"TableForm", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"gplot", ",", "pplot"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<\>\"", ",", "fplot"}], "}"}]}], "}"}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", 
+       RowBox[{
+        RowBox[{"tbounds", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "+", 
+        RowBox[{"0.01", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"tbounds", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], "-", 
+           RowBox[{"tbounds", "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], ")"}]}]}], ",", 
+       RowBox[{"tbounds", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], ",", 
+       RowBox[{"0.01", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"tbounds", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], "-", 
+          RowBox[{"tbounds", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], ")"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"guides", ",", 
+       RowBox[{"{", 
+        RowBox[{"False", ",", "True"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"curve", ",", 
+       RowBox[{"{", 
+        RowBox[{"False", ",", "True"}], "}"}]}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8462779191981554`*^9, 3.846278035977694*^9}, {
+  3.8462780681225204`*^9, 3.8462784476898904`*^9}, {3.846278581244392*^9, 
+  3.8462788552240367`*^9}, {3.8462788896481123`*^9, 3.8462791860676303`*^9}, {
+  3.84627923383702*^9, 3.846279290434866*^9}, {3.846279324086751*^9, 
+  3.8462793374714947`*^9}, {3.8462793787860575`*^9, 3.8462794082526155`*^9}},
+ CellLabel->"In[54]:=",ExpressionUUID->"525a5c8b-4384-496c-9f7e-8bbb82b9eda5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"parametric", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Sin", "[", "#", "]"}], "&"}], ",", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"Sin", "[", "#", "]"}], "2"], "&"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"2", "Pi"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8462784500630665`*^9, 3.8462784515627704`*^9}, {
+  3.8462784834269047`*^9, 3.8462785273431644`*^9}},
+ CellLabel->"In[55]:=",ExpressionUUID->"139561e8-6b39-435e-8e96-f25d63e09196"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`curve$$ = False, $CellContext`guides$$ = 
+    False, $CellContext`t$$ = 0.06283185307179587, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0.06283185307179587, 2 Pi, 
+      0.06283185307179587}, {
+      Hold[$CellContext`guides$$], {False, True}}, {
+      Hold[$CellContext`curve$$], {False, True}}}, Typeset`size$$ = {
+    387., {179.5, 185.5}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`curve$$ = False, $CellContext`guides$$ = 
+        False, $CellContext`t$$ = 0.06283185307179587}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`ti$ = Part[{0, 2 Pi}, 1], $CellContext`tf$ = 
+         Part[{0, 2 Pi}, 2], $CellContext`fxmin$ = 
+         Part[{{0, 2 Pi}, {-1, 1}}, 1, 1], $CellContext`fxmax$ = 
+         Part[{{0, 2 Pi}, {-1, 1}}, 1, 2], $CellContext`fymin$ = 
+         Part[{{0, 2 Pi}, {-1, 1}}, 2, 1], $CellContext`fymax$ = 
+         Part[{{0, 2 Pi}, {-1, 1}}, 2, 2], $CellContext`gxmin$ = 
+         Part[{{0, 2 Pi}, {-1, 1}}, 1, 1], $CellContext`gxmax$ = 
+         Part[{{0, 2 Pi}, {-1, 1}}, 1, 2], $CellContext`gymin$ = 
+         Part[{{0, 2 Pi}, {-1, 1}}, 2, 1], $CellContext`gymax$ = 
+         Part[{{0, 2 Pi}, {-1, 1}}, 2, 2], $CellContext`go$ = 
+         If[$CellContext`guides$$, 1, 0], $CellContext`co$ = 
+         If[$CellContext`curve$$, 1, 
+           0], $CellContext`fplot$, $CellContext`gplot$, \
+$CellContext`pplot$}, $CellContext`fplot$ = Show[
+           ParametricPlot[{
+             (
+             Sin[#]& )[$CellContext`x], -$CellContext`x}, {$CellContext`x, \
+$CellContext`ti$, $CellContext`t$$}, PlotStyle -> {Thick, Blue}, PlotRange -> {
+              Part[{{0, 2 Pi}, {-1, 1}}, 2], -Part[{{0, 2 Pi}, {-1, 1}}, 1]}], 
+           Graphics[{
+             PointSize[Large], Blue, 
+             Point[{
+               (Sin[#]& )[$CellContext`t$$], -$CellContext`t$$}], Thick, 
+             Opacity[$CellContext`go$], 
+             InfiniteLine[{
+               (Sin[#]& )[$CellContext`t$$], -$CellContext`t$$}, {0, 1}]}], 
+           PlotRange -> {
+             Part[{{0, 2 Pi}, {-1, 1}}, 2], -Part[{{0, 2 Pi}, {-1, 1}}, 1]}, 
+           AspectRatio -> 1, Ticks -> False, Axes -> True, 
+           AxesOrigin -> {0, 0}]; $CellContext`gplot$ = Show[
+           ParametricPlot[{$CellContext`x, 
+             (
+             Sin[#]^2& )[$CellContext`x]}, {$CellContext`x, $CellContext`ti$, \
+$CellContext`t$$}, PlotStyle -> {Thick, Red}, 
+            PlotRange -> {{0, 2 Pi}, {-1, 1}}], 
+           Graphics[{
+             PointSize[Large], Red, 
+             Point[{$CellContext`t$$, 
+               (Sin[#]^2& )[$CellContext`t$$]}], Thick, 
+             Opacity[$CellContext`go$], 
+             InfiniteLine[{$CellContext`t$$, 
+               (Sin[#]^2& )[$CellContext`t$$]}, {1, 0}]}], 
+           PlotRange -> {{0, 2 Pi}, {-1, 1}}, AspectRatio -> 1, Ticks -> 
+           False, Axes -> True, AxesOrigin -> {0, 0}]; $CellContext`pplot$ = 
+         Show[
+           ParametricPlot[{
+             (Sin[#]& )[$CellContext`x], 
+             (
+             Sin[#]^2& )[$CellContext`x]}, {$CellContext`x, $CellContext`ti$, \
+$CellContext`t$$}, PlotStyle -> {Thick, Black, 
+              Opacity[$CellContext`co$]}, PlotRange -> {
+              Part[{{0, 2 Pi}, {-1, 1}}, 2], 
+              Part[{{0, 2 Pi}, {-1, 1}}, 2]}], 
+           Graphics[{Thick, 
+             Opacity[$CellContext`go$], Blue, 
+             InfiniteLine[{
+               (Sin[#]& )[$CellContext`t$$], 
+               (Sin[#]^2& )[$CellContext`t$$]}, {0, 1}], Red, 
+             InfiniteLine[{
+               (Sin[#]& )[$CellContext`t$$], 
+               (Sin[#]^2& )[$CellContext`t$$]}, {1, 0}], 
+             Opacity[
+              Max[$CellContext`go$, $CellContext`co$]], 
+             PointSize[Large], Black, 
+             Point[{
+               (Sin[#]& )[$CellContext`t$$], 
+               (Sin[#]^2& )[$CellContext`t$$]}]}], PlotRange -> {
+             Part[{{0, 2 Pi}, {-1, 1}}, 2], 
+             Part[{{0, 2 Pi}, {-1, 1}}, 2]}, AspectRatio -> 1, Ticks -> False,
+            Axes -> True, AxesOrigin -> {0, 0}]; 
+        TableForm[{{$CellContext`gplot$, $CellContext`pplot$}, {
+           "", $CellContext`fplot$}}]], 
+      "Specifications" :> {{$CellContext`t$$, 0.06283185307179587, 2 Pi, 
+         0.06283185307179587}, {$CellContext`guides$$, {
+         False, True}}, {$CellContext`curve$$, {False, True}}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{438., {258., 264.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8462785191049023`*^9, 3.846278527695181*^9}, {
+   3.846278625408848*^9, 3.8462787542667727`*^9}, 3.846278803101824*^9, 
+   3.8462788568356667`*^9, 3.8462788950327487`*^9, {3.846278937296824*^9, 
+   3.846278960901532*^9}, 3.846279004804408*^9, {3.846279130508337*^9, 
+   3.8462791907244854`*^9}, {3.846279292297736*^9, 3.8462794548690233`*^9}},
+ CellLabel->"Out[55]=",ExpressionUUID->"4dc80979-daea-4909-8de2-f8fba4582b9d"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"parametric", "[", 
+  RowBox[{
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"Sin", "[", "#", "]"}], "3"], "&"}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "#", "]"}], "-", 
+     RowBox[{
+      FractionBox["1", "3"], 
+      RowBox[{"Cos", "[", 
+       RowBox[{"2", "#"}], "]"}]}], "-", 
+     RowBox[{
+      FractionBox["1", "5"], 
+      RowBox[{"Cos", "[", 
+       RowBox[{"3", "#"}], "]"}]}]}], "&"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"2", "Pi"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1.5"}], ",", "1.5"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"2", "Pi"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1.5"}], ",", "1.5"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8462784500630665`*^9, 3.8462784515627704`*^9}, {
+  3.8462784834269047`*^9, 3.8462785273431644`*^9}, {3.846279502117078*^9, 
+  3.8462795675326195`*^9}},
+ CellLabel->"In[58]:=",ExpressionUUID->"0ca17794-4279-413c-9904-49197e14734a"]
+},
+WindowSize->{760, 833},
+WindowMargins->{{Automatic, 216}, {Automatic, 91}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a8ead0a2-17ae-4d4a-acf9-e7977b32f9ae"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 12364, 303, 618, "Input",ExpressionUUID->"525a5c8b-4384-496c-9f7e-8bbb82b9eda5"],
+Cell[CellGroupData[{
+Cell[12947, 327, 922, 29, 32, "Input",ExpressionUUID->"139561e8-6b39-435e-8e96-f25d63e09196"],
+Cell[13872, 358, 5928, 116, 541, "Output",ExpressionUUID->"4dc80979-daea-4909-8de2-f8fba4582b9d"]
+}, Open  ]],
+Cell[19815, 477, 1223, 39, 75, "Input",ExpressionUUID->"0ca17794-4279-413c-9904-49197e14734a"]
+}
+]
+*)
+
