@@ -1,0 +1,132 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4220,        124]
+NotebookOptionsPosition[      3864,        110]
+NotebookOutlinePosition[      4267,        126]
+CellTagsIndexPosition[      4224,        123]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"wheel", ",", "cv", ",", "pt"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"wheel", "=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Black", ",", "Thick", ",", 
+          RowBox[{"Circle", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"t", ",", "1"}], "}"}], ",", "1"}], "]"}], ",", 
+          RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+          RowBox[{"Point", "[", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", "1"}], "}"}], "]"}]}], "}"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"cv", "=", 
+       RowBox[{"ParametricPlot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"x", "-", 
+            RowBox[{"d", " ", 
+             RowBox[{"Sin", "[", "x", "]"}]}]}], ",", 
+           RowBox[{"1", "-", 
+            RowBox[{"d", " ", 
+             RowBox[{"Cos", "[", "x", "]"}]}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "t"}], "}"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Red", ",", "Thick", ",", 
+            RowBox[{"If", "[", 
+             RowBox[{"curve", ",", 
+              RowBox[{"Opacity", "[", "1", "]"}], ",", 
+              RowBox[{"Opacity", "[", "0", "]"}]}], "]"}]}], "]"}]}]}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"pt", "=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", 
+          RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+          RowBox[{"Point", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"t", "-", 
+              RowBox[{"d", " ", 
+               RowBox[{"Sin", "[", "t", "]"}]}]}], ",", 
+             RowBox[{"1", "-", 
+              RowBox[{"d", " ", 
+               RowBox[{"Cos", "[", "t", "]"}]}]}]}], "}"}], "]"}]}], "}"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Show", "[", 
+       RowBox[{"wheel", ",", "cv", ",", "pt", ",", 
+        RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "2"}], ",", 
+             RowBox[{
+              RowBox[{"4", "Pi"}], "+", "2"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", "3"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0.01", ",", 
+     RowBox[{"4", "Pi"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"d", ",", "1"}], "}"}], ",", "0", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"curve", ",", 
+     RowBox[{"{", 
+      RowBox[{"False", ",", "True"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8472227210056543`*^9, 3.8472228976772985`*^9}, {
+  3.8472229349785767`*^9, 3.8472231967337217`*^9}, {3.8472232467300797`*^9, 
+  3.847223254713201*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"5d422d6f-5225-4cb7-a488-82bcc58ce47e"]
+},
+WindowSize->{760, 833},
+WindowMargins->{{Automatic, 217}, {88, Automatic}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ad5825cc-fe97-433b-b096-e7eff91bc05b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3302, 88, 162, "Input",ExpressionUUID->"5d422d6f-5225-4cb7-a488-82bcc58ce47e"]
+}
+]
+*)
+
